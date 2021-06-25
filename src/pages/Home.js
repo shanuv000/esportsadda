@@ -32,6 +32,7 @@ const Home = () => {
         style={{ minHeight: "745px" }}
       >
         <div className="row ">
+
           {pubg.map((pubg) => (
             <Card
               key={pubg.id}

@@ -2,14 +2,18 @@ import React, { useContext,useRef } from "react";
 import "./Header.css";
 // import RealTime from "./RealTime";
 import { FireContext } from "./Firecontext";
-// import FirebaseOtp from "../Firebaseotp";
+import {useHistory} from "react-router-dom";
+import FirebaseOtp from "../Firebaseotp";
 import { Container,NavDropdown, Navbar, Nav } from "react-bootstrap";
+import Modal from './Modal';
 import {NavLink} from "react-router-dom";
 import logos from '../assets/logo13.svg';
 
 
 const Header = (props) => {
     const {currentUser} =useContext(FireContext);
+   const history=useHistory();
+    // const callModal=()=>{return <Modal />}
     return (
         <>
             <Navbar collapseOnSelect expand="lg" bg={props.backColor} variant="dark"  >
@@ -27,6 +31,10 @@ const Header = (props) => {
                                     <NavLink activeClassName="is-active"  className="nav-link "   exact={true} to="/">HOME</NavLink>
 
                                 </li>
+                                <li className="nav-item ml-md-5 ">
+                                    <NavLink activeClassName="is-active"  className="nav-link "   exact={true} to="/cards">CARD</NavLink>
+
+                                </li>
                                 <li className="nav-item ml-md-5">
                                     <NavLink activeClassName="is-active"  className="nav-link "   exact={true} to="/otp">OTP</NavLink>
                                 </li>
@@ -39,7 +47,9 @@ const Header = (props) => {
                                 <NavLink activeClassName="is-active"  className="nav-link "   exact={true} to="/pubgform">BGMI Form</NavLink>
                             </li>
                                 <li className="nav-item active ml-md-5">
-                                    {currentUser?<p className='nav-link text-muted'>{currentUser.phoneNumber}</p>:<button  className=" btn btn-block btn-lg btn-outline-danger ml-md-5" >Login</button>}
+                                    {currentUser?
+                                        <p className='nav-link text-muted'>{currentUser.phoneNumber}</p>: <Modal styling={'btn btn-block btn-lg btn-outline-danger ml-md-5'}/>}
+                                         {/*<button  className=" btn btn-block btn-lg btn-outline-danger ml-md-5" >Login</button>}*/}
                                 </li>
                             </ul>
                         </Nav>
