@@ -9,7 +9,7 @@ const Part1 = () => {
 const img4 ='https://staticg.sportskeeda.com/editor/2021/06/0c449-16239060827699-800.jpg';
   return (
     <>
-      <div className="back__img img-fluid ">
+      <div className="back__img ">
         {/*-----------------------*/}
 <Header backColor='transparent'/>
         {/*-----------------------*/}
@@ -28,13 +28,13 @@ const img4 ='https://staticg.sportskeeda.com/editor/2021/06/0c449-16239060827699
               {/*<p className="display-5"> discover content and a lot more!</p>*/}
               <button
                 type="button"
-                className=" col-md-4 col-sm-6 btn-lg btn mt-4 btn-danger btn1"
+                className=" col-lg-4 col-sm-6 btn-lg btn mt-4 btn-danger btn1"
               >
-                Play Now
+                PLAY NOW
               </button>
               <button
                 type="button"
-                className="col-md-4 col-sm-6 border border-white btn-lg btn__hover bg-transparent text-white btn mt-4 ml-md-4  btn2"
+                className="col-lg-4 col-sm-6 border border-white btn-lg btn__hover bg-transparent text-white btn mt-4 ml-md-4  btn2"
               >
                 EA NEWS
               </button>

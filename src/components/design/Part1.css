@@ -1,9 +1,8 @@
 .back__img {
   color: white;
-  /* background-image: url(https://images.unsplash.com/photo-1619089654126-4f6d1df6fb69?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1526&q=80); */
-  background-image: url("../../assets/cover.jpg");
+  background-image: url("../../assets/cover1.svg");
   display: block;
-  /* margin: 0 auto; */
+   /*margin: 0 auto; */
   /* Image is centered vertically and horizontally at all times */
   background-position: center center;
 
@@ -15,14 +14,10 @@
    * background: url(background-photo.jpg) center center cover no-repeat fixed;
    */
 
-  /* border: 2px solid black; */
   min-height: 800px;
-  /* display: block; */
-  /* max-width: 800px; */
-  /* min-height: 500px; */
   width: auto;
   height: auto;
-  /* object-fit: cover; */
+   object-fit: cover;
   box-shadow: 0px -45px 37px -11px rgba(238,23,23,0.94) inset;
   -webkit-box-shadow: 0px -45px 37px -11px rgba(238,23,23,0.94) inset;
   -moz-box-shadow: 0px -45px 37px -11px rgba(238,23,23,0.94) inset;

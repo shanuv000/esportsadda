@@ -1,9 +1,17 @@
-.img__logo{width:213px;
-    max-height:100px;
+
+.img__logo{
+    width:213px;
+    /*max-height:100px;*/
+    max-height: 80px;
     padding:0;
-    margin-bottom: 0;
+    margin-bottom: 0px;
     margin-top: 0;
 }
 
 .con__con{padding-bottom:0;}
+@media only screen and (max-width: 767px) {
+    .img__logo{
+        max-height: 100px;
 
+    }
+}

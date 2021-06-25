@@ -22,6 +22,10 @@ function App() {
           {/* <Home /> */}
           <CoverPage />
         </Route>
+        <Route path="/cards" exact>
+           <Home />
+          {/*<CoverPage />*/}
+        </Route>
         <Route path="/pubgform" exact>
           <PubgForm />
         </Route>
