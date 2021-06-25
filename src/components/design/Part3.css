@@ -1,0 +1,25 @@
+.back_3 {
+  color: white;
+  display: block;
+  min-height: 750px;
+  background-color: #080809;
+  background-position: center center;
+}
+.card__part3 {
+  margin-top: 90px;
+}
+
+.margin__part3{  transform: translate(0%, 10%);
+}
+.part3__part2Margin{transform: translate(0%, 60%);}
+@media only screen and (max-width: 767px) {
+  .part3__part2Margin{transform: translate(0%, 0%);}
+  .margin__part3{  transform: translate(0%, 0%);
+  }
+  /*.translate__new{transform: skew(6deg);*/
+  /*  -webkit-transform: skew(6deg);*/
+  /*  -moz-transform: skew(6deg);}*/
+  .card__part3 {
+    margin-top: 10px;
+  }
+}
