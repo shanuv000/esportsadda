@@ -12,10 +12,11 @@ import UserTable from "./admin/userTable";
 import Warning from "./admin/Warning";
 import Modals from "./components/Modal";
 import CoverPage from "./pages/CoverPage";
+import Tournament from './pages/Tournament';
 function App() {
   return (
     <div className="App">
-       {/*<Header backColor='danger'/>*/}
+       <Header backColor='danger'/>
        {/*<Warning />*/}
       <Switch>
         <Route path="/" exact>
@@ -37,6 +38,9 @@ function App() {
         </Route>{" "}
         <Route path="/demo" exact>
           <Demo />
+        </Route>
+        <Route path="/tournament" exact>
+          <Tournament />
         </Route>
         <Route path="/user" exact>
           <User />

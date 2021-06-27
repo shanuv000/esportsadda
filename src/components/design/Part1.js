@@ -11,13 +11,13 @@ const img4 ='https://staticg.sportskeeda.com/editor/2021/06/0c449-16239060827699
     <>
       <div className="back__img ">
         {/*-----------------------*/}
-<Header backColor='transparent'/>
+{/*<Header backColor='transparent'/>*/}
         {/*-----------------------*/}
-        <div className="container ">
-          <div className=" handle__margin row ">
-            <div className="col-lg-6 col-sm-6 mx-auto  text__color handle__margin  ">
+        <div className="container " >
+          <div className=" handle__margin row " >
+            <div className="col-lg-6 col-sm-6 mx-auto  text__color handle__margin  " >
               <h1 className="display-4  text-danger p-2 font-weight-bold">Play To Win</h1>
-              <div className="border border-info bg-danger w-75 mt-3 rounded p-3 back__part1__title">
+              <div className="border border-info bg-danger w-75 mt-3 rounded p-3 back__part1__title" >
               <p className=" text-title  display-5   text-white ">
                 INDIA’S LARGEST GROWING ESPORTS COMMUNITY</p>
                 <br/>
@@ -42,7 +42,7 @@ const img4 ='https://staticg.sportskeeda.com/editor/2021/06/0c449-16239060827699
             <div className="col-lg-6 col-sm-6   handle__margin"   >
               <img
                 src={img4}
-                style={{ height: "auto", width: "100%" }}
+                style={{ height: "450px", width: "100%" }}
                 class="mt-4"
                 alt=""
               />

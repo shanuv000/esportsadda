@@ -5,10 +5,10 @@ import "firebaseui/dist/firebaseui.css";
 
 const FirebaseOtp = () => {
   //   const [phone, setPhone] = useState([]);
-  const getUrl = true;
-  // const urlSwitch = getUrl
-  //   ? "http://localhost:3000/"
-  //   : "https://www.gurucool.tech";
+  const getUrl = false;
+  const urlSwitch = getUrl
+    ? "http://localhost:3000/"
+    : "https://www.gurucool.tech";
   // const autho = () => {
     // const items = [];
     const uiConfig = {
@@ -30,7 +30,7 @@ const FirebaseOtp = () => {
         },
       },
       signInFlow: "popup",
-      signInSuccessUrl: 'http://localhost:3000/',
+      signInSuccessUrl: {urlSwitch},
     };
 
     // var ui = new firebaseui.auth.AuthUI(firebase.auth());

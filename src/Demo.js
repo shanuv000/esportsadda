@@ -6,7 +6,6 @@ import Modals from './components/Modal'
 
 const Demo = () => {
   const { currentUser, logout } = useContext(FireContext);
-const accessModal=()=> {return <Modals/> }
   return (
     <div className="container mt-4">
       <div className="row mt-5">
