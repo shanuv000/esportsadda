@@ -1,8 +1,11 @@
-import React from "react";
+import React, {useContext} from "react";
 import { IconButton } from "@material-ui/core";
-
+// import { FireContext } from "./Firecontext";
+import Modal from './Modal';
 import "./Card.css";
 const Card = (props) => {
+  // const { currentUser } = useContext(FireContext);
+
   return (
     <>
       <div className="col-sm-12  mt-3 d-flex justify-content-center ">
@@ -63,13 +66,13 @@ const Card = (props) => {
                     aria-valuenow="50"
                     aria-valuemin="0"
                     aria-valuemax="100"
-                  ></div>
+                  />
                 </div>
                 <p className="text-right">0/{props.totalSpots}</p>
               </div>
               <div className="col-sm-4 col d-flex align-items-center">
                 <button
-                  className="btn btn-danger"
+                  className="btn  btn-block  btn-danger"
                   onClick={() => props.logss(props.gameId)}
                 >
                   Not Joined?

@@ -8,6 +8,7 @@ import { Container,NavDropdown, Navbar, Nav } from "react-bootstrap";
 import Modal from './Modal';
 import {NavLink} from "react-router-dom";
 import logos from '../assets/logo13.svg';
+import SportsEsportsIcon from '@material-ui/icons/SportsEsports';
 
 
 const Header = (props) => {
@@ -28,11 +29,11 @@ const Header = (props) => {
                         <Nav className=" ml-auto ">
                             {/*<ul className="navbar-nav mr-auto " style={{width:'100%'}}>*/}
 
-                                    <Nav.Link as={NavLink} to='/' href='/'>
+                                    <Nav.Link as={NavLink} exact  to='/' href='/'>
                                     HOME
                                 </Nav.Link>
                             <Nav.Link as={NavLink} to='/tournament' href='/tournament'>
-                                Tournament
+                                Tournament <SportsEsportsIcon color='secondary'/>
                             </Nav.Link>
                                 {/*<li className="nav-item ml-md-5 ">*/}
                                     <Nav.Link as={NavLink}  to='/demo' href='/demo'>
@@ -70,7 +71,10 @@ const Header = (props) => {
                                 {/*<NavLink activeClassName="is-active" collapseOnSelect className="nav-link "   exact={true} to="/pubgform">BGMI Form</NavLink>*/}
                                 <li className="nav-item active ">
                                     {currentUser?
-                                        <p className='nav-link text-muted'>{currentUser.phoneNumber}</p>: <Modal styling={'btn  btn-block btn-lg btn-outline-danger ml-md-5'}/>}
+                                        <p className='nav-link text-muted'>{currentUser.phoneNumber}</p>:
+                                        <Modal name={'Login'} styling={'btn  btn-block btn-lg btn-outline-danger' +
+                                        ' ml-md-5'}/>
+                                    }
                                          {/*<button  className=" btn btn-block btn-lg btn-outline-danger ml-md-5" >Login</button>}*/}
                                 </li>
                             {/*</ul>*/}

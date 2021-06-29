@@ -11,15 +11,23 @@ import { useHistory } from "react-router-dom";
 
 const Pubgform = () => {
   // Date And Time Picker
+
   const useStyles = makeStyles((theme) => ({
     container: {
       display: "flex",
       flexWrap: "wrap",
+      marginTop: '2rem',
     },
     textField: {
       marginLeft: theme.spacing(1),
       marginRight: theme.spacing(1),
       width: 400,
+    },
+    root: {
+      '& .MuiTextField-root': {
+        margin: theme.spacing(1),
+        width: '25ch',
+      },
     },
   }));
   const classes = useStyles();
@@ -48,6 +56,7 @@ const Pubgform = () => {
   // console.log(neha);
 
   function AddGame() {
+    // e.preventDefault();
     const newBgmi = {
       id: uuidv4(),
       description,
@@ -74,36 +83,59 @@ const Pubgform = () => {
     history.push("/");
   }
 
+
   return (
     <>
       <div className="back__backgroud">
         <div className="container mb-5">
           <h1 className="text-center ">Pubg Form</h1>
-          <label className="mt-3" for="exampleInputEmail1">
-            Game ID
-          </label>
-          <input
-            type="name"
-            // onChange={gamaIdValid}
-            ref={focRef}
-            class="form-control"
-            id="exampleInputEmail1"
-            aria-describedby="emailHelp"
-            placeholder="Game ID"
-            onChange={(e) => setGameId(e.target.value)}
-          ></input>
-          <label className="mt-3" for="exampleInputEmail1">
-            Title
-          </label>
-          <input
-            type="name"
-            class="form-control"
-            id="exampleInputEmail1"
-            aria-describedby="emailHelp"
-            placeholder="Title"
-            onChange={(e) => setTitle(e.target.value)}
-          ></input>
+          {/*<label className="mt-3" for="exampleInputEmail1">*/}
+          {/*  Game ID*/}
+          {/*</label>*/}
+          {/*/!*<input*!/*/}
+          {/*/!*  type="name"*!/*/}
+          {/*/!*  // onChange={gamaIdValid}*!/*/}
+          {/*/!*  ref={focRef}*!/*/}
+          {/*/!*  class="form-control"*!/*/}
+          {/*/!*  id="exampleInputEmail1"*!/*/}
+          {/*/!*  aria-describedby="emailHelp"*!/*/}
+          {/*/!*  placeholder="Game ID"*!/*/}
+          {/*/!*  onChange={(e) => setGameId(e.target.value)}*!/*/}
+          {/*/!*></input>*!/*/}
+          <TextField className={'mt-3'}
+                     id="standard-textarea"
+                     ref={focRef}
+                     label="Game ID"
+                     placeholder="Game ID"
+                     multiline
+                     onChange={(e) => setGameId(e.target.value)}
+          />
+
+
+
+          {/*<label className="mt-3" for="exampleInputEmail1">*/}
+          {/*  Title*/}
+          {/*</label>*/}
+          {/*<input*/}
+          {/*  type="name"*/}
+          {/*  class="form-control"*/}
+          {/*  id="exampleInputEmail1"*/}
+          {/*  aria-describedby="emailHelp"*/}
+          {/*  placeholder="Title"*/}
+          {/*  onChange={(e) => setTitle(e.target.value)}*/}
+          {/*></input>*/}
+          <br/>
+          <TextField className={'mt-3'}
+                     id="standard-textarea"
+                     label="Title"
+                     placeholder="Title"
+                     multiline
+                     onChange={(e) => setTitle(e.target.value)}
+
+          />
+
           <form className={classes.container} noValidate>
+
             <TextField
               id="datetime-local"
               label="Next appointment"

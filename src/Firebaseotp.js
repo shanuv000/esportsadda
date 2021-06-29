@@ -25,7 +25,7 @@ const FirebaseOtp = () => {
       ],
       callbacks: {
         signInSuccessWithAuthResult: function (authResult, redirectUrl) {
-          //   alert("successful");
+            // alert("successful");
           return true;
         },
       },
@@ -52,9 +52,9 @@ const FirebaseOtp = () => {
   );
 };
 export default FirebaseOtp;
-
-//Class Based
-
+//
+// Class Based
+//
 // class FirebaseOtp extends Component {
 //   componentDidMount() {
 //     const uiConfig = {
@@ -77,7 +77,7 @@ export default FirebaseOtp;
 //       },
 //       signInSuccessUrl: "https://youtube.com",
 //     };
-
+//
 //     var ui = new firebaseui.auth.AuthUI(firebase.auth());
 //     ui.start("#firebaseui-auth-container", uiConfig);
 //   }
@@ -85,5 +85,5 @@ export default FirebaseOtp;
 //     return <div id="firebaseui-auth-container"></div>;
 //   }
 // }
-
+//
 // export default FirebaseOtp;

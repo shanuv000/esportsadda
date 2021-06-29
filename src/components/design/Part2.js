@@ -1,12 +1,17 @@
-import React from "react";
+import React, {useContext} from "react";
 import img1 from "../../assets/img1.jpg";
 import img2 from "../../assets/img2.jpg";
 import img3 from "../../assets/img3.jpg";
 import img4 from "../../assets/pub.svg";
 import "./Part2.css";
-const Part2 = () => {
-  const styles = { margin: "10px" };
+import {useHistory} from 'react-router-dom';
+import Modal from '../Modal';
+import { FireContext } from "../Firecontext";
 
+const Part2 = () => {    const {currentUser} =useContext(FireContext);
+
+  const styles = { margin: "10px" };
+const history =useHistory();
   return (
     <>
       <div className="back__2  ">
@@ -39,9 +44,13 @@ const Part2 = () => {
                 <p class="p2 text-white mt-3">UPCOMING MORE......</p>
               </ul>
 
-              <button className="h-25 d-inline-block btn3 btn p3 m-5 button__part2  btn-sm border border-danger mt-4">
-                Sign Up
-              </button>
+              {currentUser ? <button onClick={()=>history.push('/tournament')} className="h-25 d-inline-block btn3 btn p3 m-5 button__part2  btn-sm border border-danger mt-4">
+                Play Now
+              </button>:
+                  <Modal name={'Sign Up'}
+                         styling={'h-25 d-inline-block btn3 btn p3 m-5 button__part2 btn-sm border border-danger mt-4'}
+                  />
+              }
             </div>
           </div>
         </div>

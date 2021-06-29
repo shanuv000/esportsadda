@@ -1,5 +1,5 @@
 import React from "react";
-
+import {Link} from 'react-router-dom';
 // import img4 from "../../assets/imggg.jpg";
 import "./Part1.css";
 import Header from'../Header';
@@ -26,12 +26,13 @@ const img4 ='https://staticg.sportskeeda.com/editor/2021/06/0c449-16239060827699
               discover content and a lot more!
               </p></div>
               {/*<p className="display-5"> discover content and a lot more!</p>*/}
+            <Link to='/tournament'>
               <button
                 type="button"
                 className=" col-lg-4 col-sm-6 btn-lg btn mt-4 btn-danger btn1"
               >
                 PLAY NOW
-              </button>
+              </button></Link>
               <button
                 type="button"
                 className="col-lg-4 col-sm-6 border border-white btn-lg btn__hover bg-transparent text-white btn mt-4 ml-md-4  btn2"

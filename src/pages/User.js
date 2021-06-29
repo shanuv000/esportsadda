@@ -52,7 +52,7 @@ const User = () => {
             placeholder="Enter Game Name"
           />
         </div>
-        <button class="btn btn-primary " onClick={() => AddUser()}>
+        <button class="btn btn-primary " disabled={!currentUser} onClick={() => AddUser()}>
           Add User
         </button>
       </div>

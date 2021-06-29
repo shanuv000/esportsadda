@@ -1,7 +1,23 @@
 import React, { useContext } from "react";
 import { FireContext } from "../components/Firecontext";
 import moment from "moment";
+import Button from '@material-ui/core/Button';
+import { makeStyles } from '@material-ui/core/styles';
+import SaveIcon from '@material-ui/icons/Save';
+import Icon from '@material-ui/core/Icon';
+import DeleteIcon from '@material-ui/icons/Delete';
+
+
+
+
 const PubgTable = () => {
+
+  const useStyles = makeStyles((theme) => ({
+    button: {
+      margin: theme.spacing(1),
+    },
+  }));
+  const classes = useStyles();
   const { pubg, ref } = useContext(FireContext);
   let i = 0;
   const ar = [21, 11, 34, 1, 434, 212, 43];
@@ -73,12 +89,21 @@ const PubgTable = () => {
                     {/* <td>{pubg.selectedTime}</td> */}
                     <td>{moment(pubg.createdAt.toDate()).calendar()}</td>
                     <td>
-                      <button
-                        onClick={() => DeletePubg(pubg)}
-                        className="btn btn-danger"
+                      {/*<button*/}
+                      {/*  onClick={() => DeletePubg(pubg)}*/}
+                      {/*  className="btn btn-danger"*/}
+                      {/*>*/}
+                      {/*  Delete*/}
+                      {/*</button>*/}
+                      <Button
+                          variant="contained"
+                          color="secondary"
+                          onClick={() => DeletePubg(pubg)}
+                          className={classes.button}
+                          endIcon={<DeleteIcon />}
                       >
                         Delete
-                      </button>
+                      </Button>
                     </td>
                   </tr>
                 ))}
