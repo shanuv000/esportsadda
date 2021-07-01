@@ -44,13 +44,13 @@ const history =useHistory();
                 <p class="p2 text-white mt-3">UPCOMING MORE......</p>
               </ul>
 
-              {currentUser ? <button onClick={()=>history.push('/tournament')} className="h-25 d-inline-block btn3 btn p3 m-5 button__part2  btn-sm border border-danger mt-4">
+               <button onClick={()=>history.push('/tournament')} className="h-25 d-inline-block btn3 btn p3 m-5 button__part2  btn-sm border border-danger mt-4">
                 Play Now
-              </button>:
-                  <Modal name={'Sign Up'}
-                         styling={'h-25 d-inline-block btn3 btn p3 m-5 button__part2 btn-sm border border-danger mt-4'}
-                  />
-              }
+              </button>
+                  {/*// <Modal name={'Sign Up'} */}
+                  {/*//        styling={'h-25 d-inline-block btn3 btn p3 m-5 button__part2 btn-sm border border-danger mt-4'}*/}
+                  // />
+
             </div>
           </div>
         </div>

@@ -4,8 +4,7 @@ import { useHistory } from "react-router-dom";
 import { v4 as uuidv4 } from "uuid";
 import firebase from "../firebase";
 // import { Button, IconButton } from "@material-ui/core";
-import { AccessAlarm } from "@material-ui/icons";
-
+import VideogameAssetIcon from '@material-ui/icons/VideogameAsset';
 const User = () => {
   const { currentUser, gameId, refUser } = useContext(FireContext);
   console.log(gameId);
@@ -41,8 +40,8 @@ const User = () => {
     <>
       <div className="container">
         <h1 className="text-center mt-3">
-          <AccessAlarm color="primary" className="mr-3" />
-          Game Name
+
+          Type your Game Name
         </h1>
         <div class="form-group" className="text-center mb-3 mt-1">
           <input

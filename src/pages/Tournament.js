@@ -1,6 +1,7 @@
 import Home from "./Home";
-import PubgForm from "../admin/Pubgform";
+// import PubgForm from "../admin/Pubgform";
 import PubgTable from "../admin/PubgTable";
+import UserTable from '../admin/userTable';
 import React from 'react';
 import PropTypes from 'prop-types';import Paper from '@material-ui/core/Paper';
 
@@ -91,10 +92,10 @@ export default function NavTabs() {
                 <Home/>
             </TabPanel>
             <TabPanel value={value} index={1}>
-                <PubgForm/>
+                <PubgTable/>
             </TabPanel>
             <TabPanel value={value} index={2}>
-                <PubgTable/>
+                <UserTable/>
             </TabPanel>
         </div>
     );

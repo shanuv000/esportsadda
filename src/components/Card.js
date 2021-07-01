@@ -71,7 +71,7 @@ const Card = (props) => {
                 <p className="text-right">0/{props.totalSpots}</p>
               </div>
               <div className="col-sm-4 col d-flex align-items-center">
-                <button
+                <button disabled={props.buttonHandleDisabled}
                   className="btn  btn-block  btn-danger"
                   onClick={() => props.logss(props.gameId)}
                 >
