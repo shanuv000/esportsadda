@@ -72,10 +72,10 @@ const Card = (props) => {
               </div>
               <div className="col-sm-4 col d-flex align-items-center">
                 <button disabled={props.buttonHandleDisabled}
-                  className="btn  btn-block  btn-danger"
+                  className={`btn  btn-block  btn-${props.buttonColor}`}
                   onClick={() => props.logss(props.gameId)}
                 >
-                  Not Joined?
+                  {props.buttonText}
                 </button>
               </div>
             </div>
