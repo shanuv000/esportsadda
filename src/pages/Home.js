@@ -11,53 +11,157 @@ import firebase from "../firebase";
 // import Modal from "../components/Modal";
 const Home = () => {
 
+  // array1.filter(element => array2.includes(element));
   const images =
     "https://www.pubglitepc.co/wp-content/uploads/2021/05/PUBG-Mobile-Tencent-Ban-768x432.jpg";
   const history = useHistory();
   const { pubg,user, setGameId,currentUser,refUser } = useContext(FireContext);
   const [handleAlert,setHandleAlert]=useState(false);
-  const [gameEntryValidation,setGameEntryValidation]=useState([]);
-console.log(gameEntryValidation);
+  const [gameEntryValidation,setGameEntryValidation]=useState();
+ const [gameInsert,setGameInsert]=useState([]);
+  let i=0;
+    const pubgGameId=[];
+console.log(gameInsert);
+// console.log(gameEntryValidation);
   const currentUserId = currentUser ? currentUser.uid : null;
 
-  const usersValidation=()=>{
-    const validatedBooleansItems= [];
-  pubg.filter((pubg)=>{
-    user.filter((users)=>{
 
-      const validateUser=users.owner.includes(currentUserId);
-      const validateGameId=pubg.gameId.includes(users.gameId);
-      const totalValidation =
-          validateUser && validateGameId
-              // 'shanu true-> '+users.gameId+' -- '+pubg.gameId+' -- '+validateUser:
-              // 'vaibhav false=> '+users.gameId+' -- '+pubg.gameId+' -- '+validateUser;
-      validatedBooleansItems.push(totalValidation)
-      // return console.log(validatedBooleansItems);
+  // const userValidation2 = ()=>
+  // {
+  //   refUser
+  //       .where("owner", "==", currentUserId)
+  //       .onSnapshot((querySnapshot) => {
+  //         const items = [];
+  //         querySnapshot.forEach((doc) => {
+  //           items.push(doc.data());
+  //         });
+  //       });
+  // }
 
-      // users.owner.includes(currentUserId)&&pubg.gameId.includes(users.gameId)?'shanu':'nn';
-// return console.log(users.owner.includes(currentUserId)?users.gameId.includes(pubg.gameId):false);
+  const usersValidation=(pro)=>{
 
 
+    // --------------------------------------------------
+//      const items=[];
+//      user.map((game)=>{
+//     // const validateUser=users.owner.includes(currentUserId);
+//        const validateUser=game.owner.includes(currentUserId);
+//        console.log(validateUser);
+// if(validateUser){
+//   items.push(game.gameId)
+// }
+//        // validateUser?items.push(game.gameId):false;
+//     // items.push(game.gameId)
+//      })
+//
+//     setGameInsert(items);
+
+  //
+  //
+  //   const validatedBooleansItems= [];
+  // pubg.map((pubg)=>{
+  //   user.map((users)=>{
+  //
+  //     const validateUser=users.owner.includes(currentUserId);
+  //     const validateGameId=pubg.gameId.includes(users.gameId);
+  //     const totalValidation =
+  //         validateUser && validateGameId
+  //     validatedBooleansItems.push(totalValidation)
+  // })
+  // })
+  //   setGameEntryValidation(validatedBooleansItems);
 
 
-      // console.log(pubg.gameId.includes(users.gameId))
-  })
-  })
-    // console.log(validatedBooleansItems);
-    setGameEntryValidation(validatedBooleansItems);
+const items=[];
+      pubgGameId.map((pubgGame)=>{
+
+return refUser
+        .where("owner","==",currentUserId)
+        .where("gameId","==",pubgGame)
+        .onSnapshot((querySnapshot) => {
+            i=i+1;
+            querySnapshot.forEach((doc) => {
+                 const userGameId=doc.data().gameId;
+                console.log(userGameId)
+                // p.push('b');
+               return items.push(userGameId)
+
+            });
+            // console.log((i)+'--items2=> '+items)
+
+        });
+
+})
+      console.log(items.length);
+
+
+
+// return items;
+//     setGameInsert(items);
+//       console.log('length-> '+(items.length));
+
 }
+// console.log('shanu is great '+ gameInsert);
+//     console.log('length-> '+(items.length));
 
+
+const cards = pubg.map((pubg) => {
+
+        // pubgGameId.push(pubg.gameId);
+let handleValidation=false;
+      user.map((user)=>{
+          if(user.owner.includes(currentUserId)&&user.gameId.includes(pubg.gameId)){
+              console.log(user.gameId)
+handleValidation=true;
+          }
+          })
+
+  // usersValidation(pubg.gameId);
+
+//     console.log('ssss');
+
+      // console.log(v.length===1);
+      // let  totalValidation=false;
+  // const selectors =gameInsert.filter(element => pubg.gameId.includes(element));
+
+// console.log('handleShift '+ handleSwitch());
+//       console.log('gameInsert '+ gameInsert);
+//       console.log('shanu '+!!gameInsert.filter(element => pubg.gameId.includes(element)))
+        return <Card
+            key={pubg.id}
+
+            createdAt={moment(pubg.createdAt.toDate()).calendar()}
+            scheduledDate={moment(pubg.selectedDate).calendar()}
+            images={images}
+            gameId={pubg.gameId}
+            pricePool={pubg.pricePool}
+            perkill={pubg.perkill}
+            entryFee={pubg.entryFee}
+            teamType={pubg.teamType}
+            pubgVersion={pubg.pubgVersion}
+            map={pubg.map}
+            buttonHandleDisabled={handleValidation}
+            // gamesssDemo = {setNowGameId(pubg.gameId)}
+            totalSpots={pubg.totalSpots}
+            logss={() => logss(pubg.gameId)}
+
+        />
+
+        // setNowGameId(pubg.gameId)
+      }
+  )
 
 
 
 
 
   useEffect(() => {
-    usersValidation();
+    // usersValidation();
     // usersValidation();
 
     // usergameValidation();
     //Timer
+    //   usersValidation()
     const timer= setTimeout(() => {
     setHandleAlert(false);
   }, 12000);
@@ -114,37 +218,8 @@ let c=[];
         style={{ minHeight: "745px" }}
       >
         <div className="row ">
+          {cards}
 
-          {pubg.map((pubg) => {
-
-              return <Card
-                  key={pubg.id}
-
-                  createdAt={moment(pubg.createdAt.toDate()).calendar()}
-                  // scheduledDate={moment(
-                  //   pubg.selectedDate + "T" + pubg.selectedTime
-                  // ).format("LL")}
-                  scheduledDate={moment(pubg.selectedDate).calendar()}
-                  // scheduledTime={moment(
-                  //   pubg.selectedDate + "T" + pubg.selectedTime
-                  // ).format("LT")}
-                  images={images}
-                  gameId={pubg.gameId}
-                  pricePool={pubg.pricePool}
-                  perkill={pubg.perkill}
-                  entryFee={pubg.entryFee}
-                  teamType={pubg.teamType}
-                  pubgVersion={pubg.pubgVersion}
-                  map={pubg.map}
-                  buttonHandleDisabled={false}
-                  // gamesssDemo = {setNowGameId(pubg.gameId)}
-                  totalSpots={pubg.totalSpots}
-                  logss={() => logss(pubg.gameId)}
-
-              />
-            // setNowGameId(pubg.gameId)
-              }
-          )}
           <Snackbar open={open} autoHideDuration={20000} onClose={handleClose}>
             <Alert onClose={handleClose} severity="success">
               <h5>Login! before Proceeding!!</h5>
