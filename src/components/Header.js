@@ -58,6 +58,9 @@ const Header = (props) => {
                                     <Nav.Link as={NavLink}  to='/usertable' href='/usertable'>
                                     USER TABLE
                                 </Nav.Link>
+                            <Nav.Link as={NavLink}  to='/new' href='/new'>
+                                New User
+                            </Nav.Link>
                                 {/*<li className="nav-item ml-md-5">*/}
                                 {/*    <NavLink activeClassName="is-active" collapseOnSelect  className="nav-link "   exact={true} to="/usertable">User Table</NavLink>*/}
                                 {/*</li> */}

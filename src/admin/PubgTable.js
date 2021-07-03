@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext,useState,useRef,useEffect } from "react";
 import { FireContext } from "../components/Firecontext";
 import moment from "moment";
 import Button from '@material-ui/core/Button';
@@ -11,17 +11,22 @@ import DeleteIcon from '@material-ui/icons/Delete';
 
 
 const PubgTable = () => {
-
+  const textInput = useRef(null);
+  const [handleSelect,setHandleSelect] = useState();
+// console.log(textInput.current);
   const useStyles = makeStyles((theme) => ({
     button: {
       margin: theme.spacing(1),
     },
   }));
+
+
+  // console.log(textInput.current);
+
+
   const classes = useStyles();
   const { pubg, ref } = useContext(FireContext);
   let i = 0;
-  const ar = [21, 11, 34, 1, 434, 212, 43];
-  console.log(ar.sort((a, b) => a - b));
   //Delete Function
   function DeletePubg(newBgmi) {
     ref
@@ -41,9 +46,21 @@ const PubgTable = () => {
 
   // arr.map((p) => console.log(p));
 
+  const HandleSelectInput=(pubg)=>{
+    console.log(pubg.gameId);
+    // const x = document.getElementById("SELECTION").value;
+    // console.log(x);
+
+    // setHandleSelect(textInput.current);
+    // console.log(handleSelect);
+    // console.log(textInput.current.target.value)
+  }
+
+
+
   return (
     <>
-      <div className="container back__backgroud">
+      <div className="container-fluid back__backgroud">
         <h1 className="text-center font-weight-bold mt-3">
           {/* BGMI Table {moment(showDate).format("MMMM Do YYYY, h:mm:ss a")} */}
           BGMI Table
@@ -51,7 +68,7 @@ const PubgTable = () => {
         <div className="row">
           <div className="col  col-sm">
             <table
-              class="table table-responsive table-striped "
+              class="table  table-striped "
               style={{ color: "white" }}
             >
               <thead>
@@ -65,10 +82,12 @@ const PubgTable = () => {
                   <th scope="col">Pubg Version</th>
                   <th scope="col">Team Type</th>
                   <th scope="col">Entry Fee</th>
+                  <th scope="col">match_condition</th>
+
                   <th scope="col">Date Sceduled</th>
                   {/* <th scope="col">Time Sceduled</th> */}
                   <th scope="col">Created At</th>
-
+<th></th>
                   <th scope="col">Delete</th>
                   {/* <th scope="col"></th> */}
                 </tr>
@@ -85,9 +104,17 @@ const PubgTable = () => {
                     <td className="text-capitalize">{pubg.pubgVersion}</td>
                     <td className="text-capitalize">{pubg.teamType}</td>
                     <td>{pubg.entryFee}</td>
+                    <td className="text-capitalize">{pubg.match_condition}</td>
+
                     <td>{moment(pubg.selectedDate).format("LLL")}</td>
                     {/* <td>{pubg.selectedTime}</td> */}
                     <td>{moment(pubg.createdAt.toDate()).calendar()}</td>
+                    <td>
+                      <select className="form-control" ref={textInput} id="SELECTION">
+                        <option value="1">UpComing</option>
+                        <option value="2">Live</option>
+                        <option value="0">History</option>
+                      </select></td>
                     <td>
                       {/*<button*/}
                       {/*  onClick={() => DeletePubg(pubg)}*/}
@@ -95,6 +122,7 @@ const PubgTable = () => {
                       {/*>*/}
                       {/*  Delete*/}
                       {/*</button>*/}
+
                       <Button
                           variant="contained"
                           color="secondary"

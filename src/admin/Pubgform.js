@@ -47,7 +47,7 @@ const Pubgform = () => {
   const [totalSpots, setTotalspots] = useState("100");
   const [selectedDate, setSelectedDate] = useState(null);
   const [selectedTime, setSelectedtime] = useState(null);
-
+const match_condition=0;
   // const [gameValidation, setGameValidation] = useState(false);
   // let shanu = [];
   // let neha = [];
@@ -72,6 +72,7 @@ const Pubgform = () => {
       createdAt: new Date(),
       selectedDate,
       selectedTime,
+      match_condition
     };
 
     ref

@@ -13,6 +13,7 @@ import Warning from "./admin/Warning";
 import Modals from "./components/Modal";
 import CoverPage from "./pages/CoverPage";
 import Tournament from './pages/Tournament';
+import FirebaseNewUser from "./admin/FirebaseNewUser";
 function App() {
   return (
     <div className="App">
@@ -50,6 +51,9 @@ function App() {
         </Route>
         <Route path="/modal" exact>
           <Modals />
+        </Route>
+        <Route path='/new'>
+          <FirebaseNewUser/>
         </Route>
       </Switch>
     </div>

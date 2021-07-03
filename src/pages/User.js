@@ -38,6 +38,10 @@ const User = () => {
   }
   return (
     <>
+      {!currentUser?<div className="alert alert-warning text-center" role="alert">
+        <h1 className={'text-danger'}>Please Login Before Proceed</h1>
+      </div>:null}
+
       <div className="container">
         <h1 className="text-center mt-3">
 
@@ -45,18 +49,20 @@ const User = () => {
         </h1>
         <div class="form-group" className="text-center mb-3 mt-1">
           <input
+              disabled={!currentUser}
             type="name"
             onChange={(e) => setGameName(e.target.value)}
             class="form-control"
             placeholder="Enter Game Name"
           />
         </div>
-        <button class="btn btn-primary " disabled={!currentUser} onClick={() => AddUser()}>
+        {currentUser?<p className={'text-danger'}>Please be sure before typing name. You Can't change after input.</p>:null}
+        <button class="btn btn-primary mt-3" disabled={!currentUser} onClick={() => AddUser()}>
           Add User
         </button>
       </div>
     </>
   );
-};
+}
 
 export default User;

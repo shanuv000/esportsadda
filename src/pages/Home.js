@@ -8,14 +8,12 @@ import Snackbar from '@material-ui/core/Snackbar';
 
 import moment from "moment";
 import firebase from "../firebase";
-// import Modal from "../components/Modal";
 const Home = () => {
 
-  // array1.filter(element => array2.includes(element));
   const images =
     "https://www.pubglitepc.co/wp-content/uploads/2021/05/PUBG-Mobile-Tencent-Ban-768x432.jpg";
   const history = useHistory();
-  const { pubg,user, setGameId,currentUser,refUser } = useContext(FireContext);
+  const { pubg,user, setGameId,currentUser,ref } = useContext(FireContext);
   const [handleAlert,setHandleAlert]=useState(false);
   const currentUserId = currentUser ? currentUser.uid : null;
 
@@ -30,7 +28,7 @@ const handleCardValidation=(pubgGameId)=>{
 return p;
 }
 
-const handleCardDate = (pubgDate)=>{
+const handleCardDate = (pubgDate,pubg)=>{
   let print=true;
   let d1 = new Date();
   let d2= new Date(pubgDate);
@@ -44,14 +42,28 @@ const handleCardDate = (pubgDate)=>{
     time=t2>=t1;
     print=time;
   }
+  const upcoming=print?1:0;
+  console.log('Upcoming-> '+upcoming)
+  updateUpcomingMatch(pubg,upcoming)
    return print;
 }
 
+const updateUpcomingMatch=(pubg,upcoming)=>{
+    // const upcoming=1;
+    const updateMatch = { match_condition:upcoming};
+    ref
+        .doc(pubg.id)
+        .update(updateMatch)
+        .catch((err) => {
+          console.log(err);
+        });
+}
 
-const cards = pubg.map((pubg) => {
-       const handleButtonValidation= handleCardValidation(pubg.gameId);
-     const print=handleCardDate(pubg.selectedDate);
-
+// const cards = pubg.map((pubg) => {
+    const cards = pubg.map((pubg) => {
+    handleCardDate(pubg.selectedDate,pubg);
+        const handleButtonValidation= handleCardValidation(pubg.gameId);
+const print = pubg.match_condition===1;
 
         return print?<Card
             key={pubg.id}

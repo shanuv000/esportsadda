@@ -9,11 +9,18 @@ export const FireProvider = ({ children }) => {
   const [gameId, setGameId] = useState(0);
   const ref = firebase.firestore().collection("bgmi");
   const refUser = firebase.firestore().collection("bgmi_user");
-  // const [Loading, setLoading] = useState(true);
-const history= useHistory();
+  const [newUser,setNewUser]=useState(false);
+
+
+    const history= useHistory();
   const authorize = () => {
     // let items = [];
-    firebase.auth().onAuthStateChanged((user) => setCurrentUser(user));
+    firebase.auth().onAuthStateChanged((user) => {
+        setCurrentUser(user);
+        if(user){
+            setNewUser(user.metadata.creationTime===user.metadata.lastSignInTime);
+        }
+    });
   };
 
   function getPubg() {
@@ -54,6 +61,7 @@ const history= useHistory();
     getPubg();
     getUser();
     authorize();
+
   }, []);
   // if (Loading) {
   //   return <h1 style={{ color: "orange" }}>Loading...</h1>;
@@ -68,7 +76,7 @@ const history= useHistory();
         ref,
         refUser,
         logout,
-        user,
+        user,newUser
       }}
     >
       {children}
