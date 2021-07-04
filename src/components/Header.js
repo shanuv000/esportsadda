@@ -14,10 +14,17 @@ import SportsEsportsIcon from '@material-ui/icons/SportsEsports';
 const Header = (props) => {
     const {currentUser,gameUserandPass} =useContext(FireContext);
    const history=useHistory();
-    // const callModal=()=>{return <Modal />}
-    const messageView =  !!gameUserandPass ? <h1>Shanu</h1> : null;
-    console.log(messageView);
-    console.log(gameUserandPass);
+
+   const mess= gameUserandPass.map((room)=>{
+       let validate=true;
+       validate=room.user==null;
+       return !validate?<div className="alert alert-info" role="alert">
+           <h3 className={'text-center'}>Room Name:{room.user} and Password:{room.pass}</h3>
+        </div>:null;
+    })
+
+
+    // console.log(gameUserandPass);
     return (
         <>
             <Navbar collapseOnSelect expand="lg"  variant="dark" className='con__con'  >
@@ -88,11 +95,9 @@ const Header = (props) => {
                     </Navbar.Collapse>
                 </Container>
             </Navbar>
-            <div className="container">
 
-                {messageView}
+                {mess}
 
-            </div>
         </>
 
     );

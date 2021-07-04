@@ -7,9 +7,7 @@ import TextField from '@material-ui/core/TextField';
 
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
-//
 export const sendMessageToUser=(currentUser,pubg,user)=>{
-// const items=[{}];
     const items=[{}];
     const currentUserID = currentUser?currentUser.uid:null;
     let bgmiUser=null;
@@ -22,10 +20,8 @@ export const sendMessageToUser=(currentUser,pubg,user)=>{
             if(user.owner.includes(currentUserID)&&user.gameId.includes(pubg.gameId)){
                 if(pubg.match_condition===1){
                     bgmiUser=      pubg.bgmiUserName;
-                    bgmiPassword=pubg.bgmiUserPassword;
-                    // bgmigameIId=pubg.gameId;
+                    bgmiPassword=  pubg.bgmiUserPassword;
                         items.push({"user":bgmiUser,"pass":bgmiPassword});
-
                 }
             }
         })
@@ -57,12 +53,14 @@ export default function SimpleSelect() {
     const [bgmiId, setBgmiId] = useState('');
 const [gameName,setGameName]=useState('');
     const [gamePassword,setGamePassword]=useState('');
-const handleDisableButton = (gameName===''||gamePassword===''||bgmiId==='');
-
+const handleDisableButton = (gameName===''||gamePassword==='');
+const handleDisableInput=(bgmiId==='');
 const handleChange = (event) => {
         setBgmiId(event.target.value);
         /////
-    };
+    resetInput();
+
+};
     const handleUpdateGameMessage=()=>{
         const updateGameUserAndPass = { bgmiUserName:gameName,bgmiUserPassword:gamePassword};
         ref
@@ -104,12 +102,14 @@ const resetInput=()=>{setGameName('');setGamePassword('');}
             <div className={classes.root}>
                 <TextField id="outlined-basic" label={bgmiId.gameId}
                            onChange={(e)=>setGameName(e.target.value)}
-                           variant="outlined" />
+                           variant="outlined"
+                disabled={handleDisableInput}
+                />
                 <TextField id="outlined-basic"
                            label={'password'}
                            onChange={(e)=>setGamePassword(e.target.value)}
-                           variant="outlined" />
-                <button className={'btn btn-lg btn-outline-danger'} disabled={handleDisableButton} onClick={handleUpdateGameMessage}>Publish</button>
+                           variant="outlined" disabled={handleDisableInput}/>
+                <button className={`btn btn-lg btn-outline-${handleDisableButton?"danger":'success'}`} disabled={handleDisableButton} onClick={handleUpdateGameMessage}>Publish</button>
             </div>
 
         </div>
@@ -118,7 +118,6 @@ const resetInput=()=>{setGameName('');setGamePassword('');}
             <h1 className={'text-info text-center'}>{bgmiId.gameId}</h1>
             <h1 className={'text-dark text-center'}>User: {bgmiId.bgmiUserName}</h1>
             <h1 className={'text-dark text-center'}>Password:{bgmiId.bgmiUserPassword}</h1>
-{/*<h2>{gameUserandPass.pass}</h2>*/}
         </div></>
     );
 }

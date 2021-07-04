@@ -5,11 +5,10 @@ import {sendMessageToUser} from '../admin/SendPassword';
 const Tabs=()=>{
     const { currentUser,pubg,user,gameUserandPass } = useContext(FireContext);
 
-    const p=[];
-    p.push('shanu','sjsj');
-    console.log(p);
 
 
+
+    // console.log(currentUser.providerData);
 //     const p=sendMessageToUser(currentUser,pubg,user);
 //     // console.log(p);
 //     let ps='';let us='';
