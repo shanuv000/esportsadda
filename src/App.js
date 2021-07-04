@@ -4,6 +4,7 @@ import Header from "./components/Header";
 import PubgForm from "./admin/Pubgform";
 import { Switch, Route } from "react-router-dom";
 import PubgTable from "./admin/PubgTable";
+import SendPassword from "./admin/SendPassword";
 import Firebaseotp from "./Firebaseotp";
 import Demo from "./Demo";
 import Home from "./pages/Home";
@@ -14,6 +15,7 @@ import Modals from "./components/Modal";
 import CoverPage from "./pages/CoverPage";
 import Tournament from './pages/Tournament';
 import FirebaseNewUser from "./admin/FirebaseNewUser";
+import Tabs from "./admin/Tabs";
 function App() {
   return (
     <div className="App">
@@ -55,6 +57,8 @@ function App() {
         <Route path='/new'>
           <FirebaseNewUser/>
         </Route>
+        <Route path='/sendpass'><SendPassword/></Route>
+        <Route path='/tab'><Tabs/></Route>
       </Switch>
     </div>
   );

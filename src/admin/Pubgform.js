@@ -46,7 +46,9 @@ const Pubgform = () => {
   const [map, setMap] = useState("");
   const [totalSpots, setTotalspots] = useState("100");
   const [selectedDate, setSelectedDate] = useState(null);
-  const [selectedTime, setSelectedtime] = useState(null);
+  // const [selectedTime, setSelectedtime] = useState(null);
+  const[bgmiUserName,setBgmiUserName]=useState(null);
+  const[bgmiUserPassword,setBgmiUserPassword]=useState(null);
 const match_condition=0;
   // const [gameValidation, setGameValidation] = useState(false);
   // let shanu = [];
@@ -71,8 +73,10 @@ const match_condition=0;
       title,
       createdAt: new Date(),
       selectedDate,
-      selectedTime,
-      match_condition
+      // selectedTime,
+      match_condition,
+      bgmiUserName,
+      bgmiUserPassword
     };
 
     ref

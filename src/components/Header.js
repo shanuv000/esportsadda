@@ -12,9 +12,12 @@ import SportsEsportsIcon from '@material-ui/icons/SportsEsports';
 
 
 const Header = (props) => {
-    const {currentUser} =useContext(FireContext);
+    const {currentUser,gameUserandPass} =useContext(FireContext);
    const history=useHistory();
     // const callModal=()=>{return <Modal />}
+    const messageView =  !!gameUserandPass ? <h1>Shanu</h1> : null;
+    console.log(messageView);
+    console.log(gameUserandPass);
     return (
         <>
             <Navbar collapseOnSelect expand="lg"  variant="dark" className='con__con'  >
@@ -74,7 +77,7 @@ const Header = (props) => {
                                 {/*<NavLink activeClassName="is-active" collapseOnSelect className="nav-link "   exact={true} to="/pubgform">BGMI Form</NavLink>*/}
                                 <li className="nav-item active ">
                                     {currentUser?
-                                        <p className='nav-link text-muted'>{currentUser.phoneNumber}</p>:
+                                        <p className='nav-link text-light'>{currentUser.phoneNumber}</p>:
                                         <Modal name={'Login'} styling={'btn  btn-block btn-lg btn-outline-danger' +
                                         ' ml-md-5'}/>
                                     }
@@ -85,6 +88,11 @@ const Header = (props) => {
                     </Navbar.Collapse>
                 </Container>
             </Navbar>
+            <div className="container">
+
+                {messageView}
+
+            </div>
         </>
 
     );

@@ -10,8 +10,9 @@ import moment from "moment";
 import firebase from "../firebase";
 const Home = () => {
 
-  const images =
-    "https://www.pubglitepc.co/wp-content/uploads/2021/05/PUBG-Mobile-Tencent-Ban-768x432.jpg";
+  // const images =
+  //   "https://www.pubglitepc.co/wp-content/uploads/2021/05/PUBG-Mobile-Tencent-Ban-768x432.jpg";
+  const images = 'https://assets.mspimages.in/wp-content/uploads/2021/06/Battleground-Mobile-India-2.jpg';
   const history = useHistory();
   const { pubg,user, setGameId,currentUser,ref } = useContext(FireContext);
   const [handleAlert,setHandleAlert]=useState(false);
