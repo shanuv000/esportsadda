@@ -9,6 +9,7 @@ import Modal from './Modal';
 import {NavLink} from "react-router-dom";
 import logos from '../assets/logo13.svg';
 import SportsEsportsIcon from '@material-ui/icons/SportsEsports';
+import moment from "moment";
 
 
 const Header = (props) => {
@@ -17,10 +18,20 @@ const Header = (props) => {
 
    const mess= gameUserandPass.map((room)=>{
        let validate=true;
-       validate=room.user==null;
+       validate=room.gameIds==null;
+       const roomId= room.room;
+       const password=room.password;
+       const gameNum=room.gameIds;
+      // const timing= moment(room.time.toDate()).calendar();
+      //  <td>{moment(pubg.selectedDate).format("LLL")}</td>
+       const timing=moment(room.time).format("LLL");
+
+       console.log(timing);
        return !validate?<div className="alert alert-info" role="alert">
-           <h3 className={'text-center'}>Room Name:{room.user} and Password:{room.pass}</h3>
-        </div>:null;
+         <h2 className={'text-center'}>Game Id:{gameNum}</h2>
+           <h5 className={'text-center'}>Room Name: <span className={'text-danger font-weight-bold'}>{roomId}</span> and Password: <span className={'text-danger font-weight-bold'}>{password}</span></h5>
+           <p className={'text-center'}>is Scheduled at <span className={'text-danger'}>{timing}</span></p>
+        </div> :null;
     })
 
 

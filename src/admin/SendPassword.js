@@ -12,7 +12,7 @@ export const sendMessageToUser=(currentUser,pubg,user)=>{
     const currentUserID = currentUser?currentUser.uid:null;
     let bgmiUser=null;
     let bgmiPassword=null;
-    let bgmigameIId=null;
+    let bgmigameId=null;
 
     pubg.map((pubg)=>{
         user.map((user)=>{
@@ -21,7 +21,8 @@ export const sendMessageToUser=(currentUser,pubg,user)=>{
                 if(pubg.match_condition===1){
                     bgmiUser=      pubg.bgmiUserName;
                     bgmiPassword=  pubg.bgmiUserPassword;
-                        items.push({"user":bgmiUser,"pass":bgmiPassword});
+                    bgmigameId= pubg.gameId;
+                        items.push({"room":bgmiUser,"password":bgmiPassword,"gameIds":bgmigameId,'time':pubg.selectedDate});
                 }
             }
         })
@@ -38,7 +39,6 @@ const useStyles = makeStyles((theme) => ({
         '& > *': {
             margin: theme.spacing(1),
             width: '25ch',
-
         },
     },
     selectEmpty: {
