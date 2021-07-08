@@ -15,7 +15,7 @@ const UserTable = () => {
   return (
     <>
       <div className="container back__backgroud">
-        <h1 className="text-center font-weight-bold mt-3">Pubg Table</h1>
+        <h1 className="text-center font-weight-bold mt-3">User Table</h1>
         <div className="row">
           <div className="col  col-sm">
             <table

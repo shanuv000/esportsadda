@@ -4,7 +4,7 @@ import { useHistory } from "react-router-dom";
 import { v4 as uuidv4 } from "uuid";
 import firebase from "../firebase";
 // import { Button, IconButton } from "@material-ui/core";
-import VideogameAssetIcon from '@material-ui/icons/VideogameAsset';
+// import VideogameAssetIcon from '@material-ui/icons/VideogameAsset';
 const User = () => {
   const { currentUser, gameId, refUser } = useContext(FireContext);
   console.log(gameId);

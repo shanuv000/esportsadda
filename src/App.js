@@ -1,15 +1,14 @@
 import "./App.css";
 import Header from "./components/Header";
 // import Card from "./components/Card";
-import PubgForm from "./admin/Pubgform";
+// import PubgForm from "./admin/Pubgform";
 import { Switch, Route } from "react-router-dom";
-import PubgTable from "./admin/PubgTable";
-import SendPassword from "./admin/SendPassword";
+// import PubgTable from "./admin/PubgTable";
 import Firebaseotp from "./Firebaseotp";
 import Demo from "./Demo";
-import Home from "./pages/Home";
+import MatchUpcoming from "./pages/MatchUpcoming";
 import User from "./pages/User";
-import UserTable from "./admin/userTable";
+// import UserTable from "./admin/userTable";
 import Warning from "./admin/Warning";
 import Modals from "./components/Modal";
 import CoverPage from "./pages/CoverPage";
@@ -23,19 +22,19 @@ function App() {
        {/*<Warning />*/}
       <Switch>
         <Route path="/" exact>
-          {/* <Home /> */}
+          {/* <MatchUpcoming /> */}
           <CoverPage />
         </Route>
         <Route path="/cards" exact>
-           <Home />
+           <MatchUpcoming />
           {/*<CoverPage />*/}
         </Route>
-        <Route path="/pubgform" exact>
-          <PubgForm />
-        </Route>
-        <Route path="/pubgtable" exact>
-          <PubgTable />
-        </Route>
+        {/*<Route path="/pubgform" exact>*/}
+        {/*  <PubgForm />*/}
+        {/*</Route>*/}
+        {/*<Route path="/pubgtable" exact>*/}
+        {/*  <PubgTable />*/}
+        {/*</Route>*/}
         <Route path="/otp" exact>
           <Firebaseotp />
         </Route>{" "}
@@ -48,16 +47,15 @@ function App() {
         <Route path="/user" exact>
           <User />
         </Route>{" "}
-        <Route path="/usertable" exact>
-          <UserTable />
-        </Route>
+        {/*<Route path="/usertable" exact>*/}
+        {/*  <UserTable />*/}
+        {/*</Route>*/}
         <Route path="/modal" exact>
           <Modals />
         </Route>
         <Route path='/new'>
           <FirebaseNewUser/>
         </Route>
-        <Route path='/sendpass'><SendPassword/></Route>
         <Route path='/tab'><Tabs/></Route>
       </Switch>
     </div>
