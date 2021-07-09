@@ -16,9 +16,9 @@ const FirebaseOtp = () => {
         {
           provider: firebase.auth.PhoneAuthProvider.PROVIDER_ID,
           recaptchaParameters: {
-            type: "image",
-            size: "normal",
-            badge: "bottomleft",
+            // type: "image",
+            size: "invisible",
+            // badge: "bottomleft",
           },
           defaultCountry: "IN",
         },
@@ -47,7 +47,7 @@ const FirebaseOtp = () => {
 
   return (
     <>
-      <div id="firebaseui-auth-container"></div>
+      <div id="firebaseui-auth-container"/>
     </>
   );
 };

@@ -14,8 +14,11 @@ import Modals from "./components/Modal";
 import CoverPage from "./pages/CoverPage";
 import Tournament from './pages/Tournament';
 import FirebaseNewUser from "./admin/FirebaseNewUser";
-import Tabs from "./admin/Tabs";
+import CreateNewProfile from "./admin/CreateNewProfile";
+import Profile from "./components/Profile/Profile";
+
 function App() {
+
   return (
     <div className="App">
        <Header backColor='danger'/>
@@ -27,14 +30,7 @@ function App() {
         </Route>
         <Route path="/cards" exact>
            <MatchUpcoming />
-          {/*<CoverPage />*/}
         </Route>
-        {/*<Route path="/pubgform" exact>*/}
-        {/*  <PubgForm />*/}
-        {/*</Route>*/}
-        {/*<Route path="/pubgtable" exact>*/}
-        {/*  <PubgTable />*/}
-        {/*</Route>*/}
         <Route path="/otp" exact>
           <Firebaseotp />
         </Route>{" "}
@@ -47,16 +43,15 @@ function App() {
         <Route path="/user" exact>
           <User />
         </Route>{" "}
-        {/*<Route path="/usertable" exact>*/}
-        {/*  <UserTable />*/}
-        {/*</Route>*/}
+
         <Route path="/modal" exact>
           <Modals />
         </Route>
         <Route path='/new'>
           <FirebaseNewUser/>
         </Route>
-        <Route path='/tab'><Tabs/></Route>
+        <Route path='/profile' component={Profile}/>
+        <Route path='/tab'><CreateNewProfile/></Route>
       </Switch>
     </div>
   );

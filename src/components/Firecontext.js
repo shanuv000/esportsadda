@@ -10,7 +10,6 @@ export const FireProvider = ({children}) => {
     const [pubg, setPubg] = useState([]);
     const [user, setUser] = useState([]);
     const [currentUser, setCurrentUser] = useState([]);
-    const [getNewUser,setGetNewUser]=useState([]);
     const [gameId, setGameId] = useState(0);
     const ref = firebase.firestore().collection("bgmi");
     const refNewUser = firebase.firestore().collection("newuser");
@@ -20,7 +19,8 @@ export const FireProvider = ({children}) => {
 // const [gameUserandPass,setGameUserandPass]=useState([{}]);
     const gameUserandPass = sendMessageToUser(currentUser, pubg, user);
     const history = useHistory();
-
+    const [newUserIdCollection,setnewUserIdCollection]=useState([]);
+const [newUserCollection,setNewUserCollection]=useState([]);
     const authorize = () => {
         // let items = [];
         firebase.auth().onAuthStateChanged((user) => {
@@ -57,47 +57,15 @@ export const FireProvider = ({children}) => {
     function getNewUserValidation(){
         refNewUser.onSnapshot((querySnapshot) => {
             const items = [];
+            const items2=[];
             querySnapshot.forEach((doc) => {
-                items.push(doc.data());
-                // setLoading(false);
+                items2.push(doc.data());
+                items.push(doc.data().ownerId);
             });
-            setGetNewUser(items);
+            setNewUserCollection(items2);
+            setnewUserIdCollection(items);
         });
-
     }
-
-    const AddnewUsers = () => {
-        const owner = currentUser ? currentUser.phoneNumber : null;
-        const ownerId = currentUser ? currentUser.uid : null;
-        let validator = true;
-        getNewUser.map((Newusers)=>{
-            if(Newusers.ownerId===ownerId)
-            {
-
-                validator=false;
-                console.log('Under if '+validator);
-            }
-        } );
-
-        const newUsers = {
-            id: uuidv4(), owner, ownerId, createdAt: new Date(),
-        }
-        //Validation
-console.log(newUser && validator);
-        if(newUser && validator)
-        {
-
-        refNewUser
-            .doc(newUser.id)
-            .set(newUsers)
-            .catch((err) => {
-                console.log(err);
-            });
-        }
-    }
-
-
-    // AddnewUsers();
 
 
     const logout = () => {
@@ -111,13 +79,13 @@ console.log(newUser && validator);
             .catch((error) => {
             });
     };
-
     // AddnewUsers();
     useEffect(() => {
         getPubg();
         getUser();
         authorize();
         getNewUserValidation();
+        // NewuserIDExtraction();
         // AddnewUsers();
 
     }, []);
@@ -131,10 +99,13 @@ console.log(newUser && validator);
                 ref,
                 refUser,
                 logout,
+                user,
+                newUser,
+                gameUserandPass,
+                refNewUser,
+                newUserIdCollection,
+                newUserCollection
 
-                user, newUser, gameUserandPass,
-                AddnewUsers,
-                getNewUser,
             }}
         >
             {children}

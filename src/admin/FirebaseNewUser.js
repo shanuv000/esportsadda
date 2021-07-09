@@ -9,7 +9,7 @@ import {useContext} from 'react';
 
 const FirebaseNewUser=()=>{
     const { newUser } = useContext(FireContext);
-    let msg =newUser?'shanu is awesome':'Vaibhav is awesome';
-    return <h1>{msg}</h1>
+    let msg =newUser?'NEW USER':'NOT a NEW USER';
+    return <h1 className={'text-center'}>{msg}</h1>
 }
 export default FirebaseNewUser;

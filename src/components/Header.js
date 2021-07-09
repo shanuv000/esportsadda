@@ -8,7 +8,6 @@ import { Container,NavDropdown, Navbar, Nav } from "react-bootstrap";
 import Modal from './Modal';
 import {NavLink} from "react-router-dom";
 import logos from '../assets/logo13.svg';
-import SportsEsportsIcon from '@material-ui/icons/SportsEsports';
 import moment from "moment";
 
 export const showMessage=(gameUserandPass)=>{
@@ -33,9 +32,9 @@ export const showMessage=(gameUserandPass)=>{
 
 
 const Header = (props) => {
-    const {currentUser,gameUserandPass,AddnewUsers} =useContext(FireContext);
+    const {currentUser,gameUserandPass} =useContext(FireContext);
    const history=useHistory();
-
+    // const walletImg = ;
 
 
    //For showing room Id, Password and  messages to User.
@@ -46,10 +45,14 @@ const Header = (props) => {
     // useEffect(()=>{
     //     AddnewUsers();
     // },[])
+
+
+
     return (
         <>
             <Navbar collapseOnSelect expand="lg"  variant="dark" className='con__con'  >
-                <Container >
+                {/*<Container>*/}
+                <div className="container">
                     <Navbar.Brand href="/" className='nav__brand'  >
                         <h1 className="text-hide">BGMI Tournament<img className='img__logo' src={logos} alt="" /></h1>
 
@@ -57,7 +60,8 @@ const Header = (props) => {
 
                     <Navbar.Toggle aria-controls="responsive-navbar-nav " />
                     <Navbar.Collapse id="responsive-navbar-nav ">
-                        <Nav className=" ml-auto ">
+                        <Nav className=" ml-auto d-flex justify-content-around font-weight-bold "
+                        style={{width:"100%",}}>
                             {/*<ul className="navbar-nav mr-auto " style={{width:'100%'}}>*/}
 
                                     <Nav.Link as={NavLink} exact  to='/' href='/'>
@@ -92,30 +96,25 @@ const Header = (props) => {
                             <Nav.Link as={NavLink}  to='/new' href='/new'>
                                 New User
                             </Nav.Link>
-                                {/*<li className="nav-item ml-md-5">*/}
-                                {/*    <NavLink activeClassName="is-active" collapseOnSelect  className="nav-link "   exact={true} to="/usertable">User Table</NavLink>*/}
-                                {/*</li> */}
-                                {/*    <Nav.Link as={NavLink} exact={true}  to='/pubgtable' href='/pubgtable'>*/}
-                                {/*    BGMI TABLE*/}
-                                {/*</Nav.Link>*/}
-                            {/*<Nav.Link as={NavLink}  to='/pubgform' href='/pubgform'>*/}
-                            {/*    BGMI FORM*/}
-                            {/*</Nav.Link>*/}
-
-                                {/*<NavLink activeClassName="is-active" collapseOnSelect  className="nav-link "   exact={true} to="/pubgtable">BGMI Table</NavLink>*/}
-                                {/*<NavLink activeClassName="is-active" collapseOnSelect className="nav-link "   exact={true} to="/pubgform">BGMI Form</NavLink>*/}
-                                <li className="nav-item active ">
                                     {currentUser?
-                                        <p className='nav-link text-light'>{currentUser.phoneNumber}</p>:
+                                        // <p className='nav-link text-light'>{currentUser.phoneNumber}</p>
+                                        <Nav.Link as={NavLink} className={'text-success bg-dark'}  to='/profile' href='/profile'>
+                                            {currentUser.phoneNumber}
+                                        </Nav.Link>
+                                        :
                                         <Modal name={'Login'} styling={'btn  btn-block btn-lg btn-outline-danger' +
                                         ' ml-md-5'}/>
                                     }
-                                         {/*<button  className=" btn btn-block btn-lg btn-outline-danger ml-md-5" >Login</button>}*/}
-                                </li>
+
+                                {/*</li>*/}
+                            {/*<li className="nav-item active ">*/}
+                            {/*    <p className='nav-link text-light'>{walletImg}</p>*/}
+                            {/*</li>*/}
                             {/*</ul>*/}
                         </Nav>
                     </Navbar.Collapse>
-                </Container>
+                {/*</Container>*/}
+                </div>
             </Navbar>
 
                 {showMessage(gameUserandPass)}
