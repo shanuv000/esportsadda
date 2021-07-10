@@ -4,7 +4,7 @@ import { IconButton } from "@material-ui/core";
 import Modal from '../Modal';
 import "./Card.css";
 import MonetizationOnRoundedIcon from '@material-ui/icons/MonetizationOnRounded';
-
+import {Link } from 'react-router-dom';
 const Card = (props) => {
   // const { currentUser } = useContext(FireContext);
 
@@ -25,7 +25,6 @@ const Card = (props) => {
               <div className="col-sm-4 col">
                 <h6 className="text-muted text-center">PRIZE POOL</h6>
                 <h3 className="text-center">
-                  <IconButton />
                   ₹{props.pricePool}
                 </h3>
               </div>
@@ -64,7 +63,7 @@ const Card = (props) => {
                   <div
                     class="progress-bar bg-danger"
                     role="progressbar"
-                    style={{ width: "80%" }}
+                    style={{ width: "10%" }}
                     aria-valuenow="50"
                     aria-valuemin="0"
                     aria-valuemax="100"
@@ -73,12 +72,18 @@ const Card = (props) => {
                 <p className="text-right">0/{props.totalSpots}</p>
               </div>
               <div className="col-sm-4 col d-flex align-items-center">
-                <button disabled={props.buttonHandleDisabled}
-                  className={`btn  btn-block  btn-${props.buttonColor}`}
-                  onClick={() => props.logss(props.gameId)}
+                {/*<button disabled={props.buttonHandleDisabled}*/}
+                {/*  className={`btn  btn-block  btn-${props.buttonColor}`}*/}
+                {/*  onClick={() => props.logss(props.gameId)}*/}
+                {/*>*/}
+                {/*  {props.buttonText}*/}
+                {/*</button>*/}
+                <Link to={props.buttonHandleDisabled?'#':`/tournament/${props.id}`}
+                        className={`btn  btn-block  btn-${props.buttonColor}`}
+                        onClick={() => props.logss(props.gameId)}
                 >
                   {props.buttonText}
-                </button>
+                </Link>
               </div>
             </div>
           </div>

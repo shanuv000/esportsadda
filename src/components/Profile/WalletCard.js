@@ -4,7 +4,7 @@ const WalletCard =(props)=>{
         <div className="card" style={{width: "100%"}}>
             <img className="card-img-top" src={walletImage} alt="Card  cap"/>
                 <div className="card-body">
-                    <p className="card-text">{props.coin}</p>
+                    <h1 className="card-text">Coin : {props.coin}</h1>
                 </div>
         </div>
         </>

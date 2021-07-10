@@ -9,6 +9,7 @@ import Snackbar from '@material-ui/core/Snackbar';
 import moment from "moment";
 // import firebase from "../firebase";
 import {handleGameType} from './MatchLive';
+
 const MatchUpcoming = () => {
 
     // const images =
@@ -75,7 +76,7 @@ const MatchUpcoming = () => {
     let count = 0;
     let cards = pubg.map((pubg) => {
             handleCardDate(pubg.selectedDate, pubg);
-        let GamesType=handleGameType(pubg);
+            let GamesType = handleGameType(pubg);
             const handleButtonValidation = handleCardValidation(pubg.gameId);
             const print = pubg.match_condition === 1;
             count = print ? (count + 1) : count;
@@ -87,7 +88,7 @@ const MatchUpcoming = () => {
                 gameId={pubg.gameId}
                 pricePool={pubg.pricePool}
                 gameName={GamesType.names}
-
+                id={pubg.id}
                 perkill={pubg.perkill}
                 buttonColor={handleButtonValidation ? 'success' : 'danger'}
                 buttonText={handleButtonValidation ? 'Already Joined!' : 'Not Joined?'}
@@ -117,19 +118,16 @@ const MatchUpcoming = () => {
     }, [handleAlert])
 
     const logss = (game) => {
-        setGameId(game);
+        // setGameId(game);
         if (!currentUser) {
             setHandleAlert(true);
             setOpen(true);   //For Snack Bar
-        } else {
-            history.push('/user')
         }
-        // console.log(game);
     };
 
-    const handleClick = () => {
-        setOpen(true);
-    };
+    // const handleClick = () => {
+    //     setOpen(true);
+    // };
 
     pubg.sort((a, b) => {
         a = new Date(a.selectedDate);

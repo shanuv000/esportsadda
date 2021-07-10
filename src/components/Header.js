@@ -37,7 +37,7 @@ const Header = (props) => {
     // const walletImg = ;
 
 
-   //For showing room Id, Password and  messages to User.
+   //For showing room Id, Password and  messages to Usersform.
 
 
 

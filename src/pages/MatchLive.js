@@ -42,7 +42,7 @@ const MatchUpcoming = () => {
     const {pubg, user, setGameId, currentUser, ref} = useContext(FireContext);
     const [handleAlert, setHandleAlert] = useState(false);
     const currentUserId = currentUser ? currentUser.uid : null;
-    const youtube = 'https://www.youtube.com/';
+    const youtube = 'https://www.youtube.com/channel/UC-WC4wck7kUhb9QwIDi5nzw/featured';
 
     const handleCardValidation = (pubgGameId) => {
         let p = false;
@@ -113,13 +113,15 @@ const MatchUpcoming = () => {
         }
     )
 
-
     useEffect(() => {
         const timer = setTimeout(() => {
             setHandleAlert(false);
         }, 12000);
         return () => clearTimeout(timer);
     }, [handleAlert])
+
+
+
 
     const logss = (game) => {
         setGameId(game);

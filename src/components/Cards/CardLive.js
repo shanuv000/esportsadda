@@ -24,7 +24,6 @@ const CardLive = (props) => {
                             <div className="col-sm-4 col">
                                 <h6 className="text-muted text-center">PRIZE POOL</h6>
                                 <h3 className="text-center">
-                                    <IconButton />
                                     ₹{props.pricePool}
                                 </h3>
                             </div>

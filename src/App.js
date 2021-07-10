@@ -7,7 +7,7 @@ import { Switch, Route } from "react-router-dom";
 import Firebaseotp from "./Firebaseotp";
 import Demo from "./Demo";
 import MatchUpcoming from "./pages/MatchUpcoming";
-import User from "./pages/User";
+import Usersform from "./pages/Usersform";
 // import UserTable from "./admin/userTable";
 import Warning from "./admin/Warning";
 import Modals from "./components/Modal";
@@ -40,9 +40,13 @@ function App() {
         <Route path="/tournament" exact>
           <Tournament />
         </Route>
-        <Route path="/user" exact>
-          <User />
-        </Route>{" "}
+        {/*//*/}
+        <Route path="/tournament/:game_Id" exact>
+          <Usersform />
+      </Route>
+        {/*<Route path="/user" exact>*/}
+        {/*  <Usersform />*/}
+        {/*</Route>{" "}*/}
 
         <Route path="/modal" exact>
           <Modals />
