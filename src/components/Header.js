@@ -9,6 +9,7 @@ import Modal from './Modal';
 import {NavLink} from "react-router-dom";
 import logos from '../assets/logo13.svg';
 import moment from "moment";
+import CreateNewProfile from '../admin/CreateNewProfile';
 
 export const showMessage=(gameUserandPass)=>{
     return    gameUserandPass.map((room)=>{
@@ -100,6 +101,7 @@ const Header = (props) => {
             </Navbar>
 
                 {showMessage(gameUserandPass)}
+            <CreateNewProfile/>
 
         </>
 

@@ -1,55 +1,56 @@
-import React, { useEffect } from "react";
+import React, {useEffect} from "react";
 import firebase from "./firebase";
 import * as firebaseui from "firebaseui";
 import "firebaseui/dist/firebaseui.css";
 
 const FirebaseOtp = () => {
-  //   const [phone, setPhone] = useState([]);
-  const getUrl = false;
-  const urlSwitch = getUrl
-    ? "http://localhost:3000/"
-    : "https://www.gurucool.tech";
-  // const autho = () => {
+    //   const [phone, setPhone] = useState([]);
+    const getUrl = true;
+    const urlSwitch = getUrl
+        ? "http://localhost:3000/"
+        : "https://www.gurucool.tech";
+    // const autho = () => {
     // const items = [];
     const uiConfig = {
-      signInOptions: [
-        {
-          provider: firebase.auth.PhoneAuthProvider.PROVIDER_ID,
-          recaptchaParameters: {
-            // type: "image",
-            size: "invisible",
-            // badge: "bottomleft",
-          },
-          defaultCountry: "IN",
+        signInOptions: [
+            {
+                provider: firebase.auth.PhoneAuthProvider.PROVIDER_ID,
+                recaptchaParameters: {
+                    // type: "image",
+                    size: "invisible",
+                    // badge: "bottomleft",
+                },
+                defaultCountry: "IN",
+            },
+        ],
+        callbacks: {
+            signInSuccessWithAuthResult: function (authResult, redirectUrl) {
+                // alert("successful");
+                return true;
+            },
         },
-      ],
-      callbacks: {
-        signInSuccessWithAuthResult: function (authResult, redirectUrl) {
-            // alert("successful");
-          return true;
-        },
-      },
-      signInFlow: "popup",
-      signInSuccessUrl: {urlSwitch},
+        signInFlow: "popup",
+        signInSuccessUrl: {urlSwitch},
     };
 
     // var ui = new firebaseui.auth.AuthUI(firebase.auth());
     // ui.start("#firebaseui-auth-container", uiConfig);
     // setPhone(items);
-  useEffect(() => {
-    let ui = new firebaseui.auth.AuthUI(firebase.auth());
-    ui.start("#firebaseui-auth-container", uiConfig);
-    return () => {
-      ui.delete();
-    };
-  }, []);
+    useEffect(() => {
+        let ui = new firebaseui.auth.AuthUI(firebase.auth());
+        ui.start("#firebaseui-auth-container", uiConfig);
+        return () => {
+            ui.delete();
+            window.location = 'http://localhost:3000/';
+        };
+    }, []);
 
 
-  return (
-    <>
-      <div id="firebaseui-auth-container"/>
-    </>
-  );
+    return (
+        <>
+            <div id="firebaseui-auth-container"/>
+        </>
+    );
 };
 export default FirebaseOtp;
 //
