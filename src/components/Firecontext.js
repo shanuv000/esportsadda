@@ -12,7 +12,6 @@ export const FireProvider = ({children}) => {
     // const [gameId, setGameId] = useState(0);
     const ref = firebase.firestore().collection("bgmi");
     const refNewUser = firebase.firestore().collection("newuser");
-
     const refUser = firebase.firestore().collection("bgmi_user");
     const [newUser, setNewUser] = useState(false);
 // const [gameUserandPass,setGameUserandPass]=useState([{}]);

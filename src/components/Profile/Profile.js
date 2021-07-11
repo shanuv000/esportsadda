@@ -2,16 +2,26 @@ import WalletCard from './WalletCard';
 import React, {useContext} from "react";
 import {FireContext} from "../Firecontext";
 import {useHistory} from "react-router-dom";
+import Referral from './Referral';
+
 
 const Profile = () => {
     // newUserCollection
-    let coin = 'No Coin';
+    let coin = '';
+    let referral = '';
+    let currentId = null;
+    let referralValidation=0;
 const history = useHistory();
     const {newUserCollection, currentUser, logout} = useContext(FireContext);
     const currentUserid = currentUser ? currentUser.uid : null;
 
     newUserCollection.filter((owns) => owns.ownerId === currentUserid)
-        .map((coins) => coin = coins.coin);
+        .map((coins) => {
+            coin = coins.coin
+            referral = coins.referral
+            currentId = coins.id;
+            referralValidation=coins.referralValidation;
+        });
 
     const logouting = () => {
         logout();
@@ -24,7 +34,7 @@ const history = useHistory();
         </div>
         <div className="container">
             <div className="row">
-                <div className="col-sm-6"/>
+                <div className="col-sm-6"><Referral coin={coin} referral ={referral} currentId={currentId} referralValidation={referralValidation}/></div>
                 <div className="col-sm-6">
                     <WalletCard coin={coin}/>
                 </div>
