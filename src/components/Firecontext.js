@@ -18,8 +18,9 @@ export const FireProvider = ({children}) => {
 // const [gameUserandPass,setGameUserandPass]=useState([{}]);
     const gameUserandPass = sendMessageToUser(currentUser, pubg, user);
     const history = useHistory();
-    const [newUserIdCollection,setnewUserIdCollection]=useState([]);
-const [newUserCollection,setNewUserCollection]=useState([]);
+    const [newUserIdCollection, setnewUserIdCollection] = useState([]);
+    const [newUserCollection, setNewUserCollection] = useState([]);
+    const [Loading,setLoading] =useState(true);
     const authorize = () => {
         // let items = [];
         firebase.auth().onAuthStateChanged((user) => {
@@ -53,10 +54,10 @@ const [newUserCollection,setNewUserCollection]=useState([]);
         });
     }
 
-    function getNewUserValidation(){
+    function getNewUserValidation() {
         refNewUser.onSnapshot((querySnapshot) => {
             const items = [];
-            const items2=[];
+            const items2 = [];
             querySnapshot.forEach((doc) => {
                 items2.push(doc.data());
                 items.push(doc.data().ownerId);
@@ -72,8 +73,7 @@ const [newUserCollection,setNewUserCollection]=useState([]);
             .auth()
             .signOut()
             .then(() => {
-                alert("you are Logged Out");
-                history.push('/');
+
             })
             .catch((error) => {
             });
@@ -84,10 +84,13 @@ const [newUserCollection,setNewUserCollection]=useState([]);
         getUser();
         authorize();
         getNewUserValidation();
-        // NewuserIDExtraction();
-        // AddnewUsers();
+setLoading(false);
 
     }, []);
+
+    if(Loading){
+        return <h1>Shanu is Great</h1>;
+    }
     return (
         <FireContext.Provider
             value={{

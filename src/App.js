@@ -5,7 +5,6 @@ import Header from "./components/Header";
 import { Switch, Route } from "react-router-dom";
 // import PubgTable from "./admin/PubgTable";
 import Firebaseotp from "./Firebaseotp";
-import Demo from "./Demo";
 import MatchUpcoming from "./pages/MatchUpcoming";
 import Usersform from "./pages/Usersform";
 // import UserTable from "./admin/userTable";
@@ -16,6 +15,7 @@ import Tournament from './pages/Tournament';
 import FirebaseNewUser from "./admin/FirebaseNewUser";
 import CreateNewProfile from "./admin/CreateNewProfile";
 import Profile from "./components/Profile/Profile";
+import ShowGameAllPlayer from "./pages/ShowGameAllPlayer";
 
 function App() {
 
@@ -31,23 +31,21 @@ function App() {
         <Route path="/cards" exact>
            <MatchUpcoming />
         </Route>
-        <Route path="/otp" exact>
-          <Firebaseotp />
-        </Route>{" "}
-        <Route path="/demo" exact>
-          <Demo />
-        </Route>
+        {/*<Route path="/otp" exact>*/}
+        {/*  <Firebaseotp />*/}
+        {/*</Route>*/}
+        {/*<Route path="/demo" exact>*/}
+        {/*  <Demo />*/}
+        {/*</Route>*/}
         <Route path="/tournament" exact>
           <Tournament />
         </Route>
         {/*//*/}
-        <Route path="/tournament/:game_Id" exact>
+
+        <Route path="/tournament/:game_Id" >
           <Usersform />
       </Route>
-        {/*<Route path="/user" exact>*/}
-        {/*  <Usersform />*/}
-        {/*</Route>{" "}*/}
-
+        <Route path="/cards/:players" component={ShowGameAllPlayer}/>
         <Route path="/modal" exact>
           <Modals />
         </Route>

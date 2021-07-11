@@ -10,9 +10,12 @@ const Card = (props) => {
 
   return (
     <>
+
       <div className="col-sm-12  mt-3 d-flex justify-content-center ">
-        <div class="card sm-12" style={{ width: "30rem" }}>
-          <img className="img-fluid" src={props.images} alt="Card  cap" />
+        <div class="card sm-12 border border-success" style={{ width: "30rem" }} >
+          <Link to={`/cards/${props.gameId}`}>
+            <img className="img-fluid" src={props.images} alt="Card  cap" />
+          </Link>
 
           <div class="card-body">
             <div className="row mb-3 d-flex justify-content-center">
@@ -63,7 +66,7 @@ const Card = (props) => {
                   <div
                     class="progress-bar bg-danger"
                     role="progressbar"
-                    style={{ width: "10%" }}
+                    style={{ width: "50%" }}
                     aria-valuenow="50"
                     aria-valuemin="0"
                     aria-valuemax="100"
@@ -72,12 +75,7 @@ const Card = (props) => {
                 <p className="text-right">0/{props.totalSpots}</p>
               </div>
               <div className="col-sm-4 col d-flex align-items-center">
-                {/*<button disabled={props.buttonHandleDisabled}*/}
-                {/*  className={`btn  btn-block  btn-${props.buttonColor}`}*/}
-                {/*  onClick={() => props.logss(props.gameId)}*/}
-                {/*>*/}
-                {/*  {props.buttonText}*/}
-                {/*</button>*/}
+
                 <Link to={props.buttonHandleDisabled?'#':`/tournament/${props.id}`}
                         className={`btn  btn-block  btn-${props.buttonColor}`}
                         onClick={() => props.logss(props.gameId)}

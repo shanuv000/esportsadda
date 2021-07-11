@@ -70,29 +70,11 @@ const Header = (props) => {
                             <Nav.Link as={NavLink} to='/tournament' href='/tournament'>
                                 Tournament
                             </Nav.Link>
-                                {/*<li className="nav-item ml-md-5 ">*/}
-                                    <Nav.Link as={NavLink}  to='/demo' href='/demo'>
-                                    DEMO
-                                </Nav.Link>
-                                {/*</li>*/}
-                                {/*    <Nav.Link as={NavLink}  to='/cards' href='/cards'>*/}
-                                {/*    CARDS*/}
-                                {/*</Nav.Link>*/}
-                                    <Nav.Link as={NavLink}  to='/otp' href='/otp'>
-                                    OTP
-                                </Nav.Link>
 
 
-                                {/*<li className="nav-item ml-md-5 ">*/}
-                                {/*    <NavLink activeClassName="is-active" collapseOnSelect='false'  className="nav-link "   exact={true} to="/cards">CARD</NavLink>*/}
 
-                                {/*</li>*/}
-                                {/*<li className="nav-item ml-md-5">*/}
-                                {/*    <NavLink activeClassName="is-active" collapseOnSelect  className="nav-link "   exact={true} to="/otp">OTP</NavLink>*/}
-                                {/*</li>*/}
-                                {/*    <Nav.Link as={NavLink}  to='/usertable' href='/usertable'>*/}
-                                {/*    USER TABLE*/}
-                                {/*</Nav.Link>*/}
+
+
                             <Nav.Link as={NavLink}  to='/new' href='/new'>
                                 New User
                             </Nav.Link>

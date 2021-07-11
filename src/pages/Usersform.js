@@ -9,7 +9,7 @@ import {useParams} from 'react-router-dom';
 const Usersform = () => {
     const {game_Id} = useParams();
 
-    const {currentUser, refUser, newUserCollection, pubg,refNewUser} = useContext(FireContext);
+    const {currentUser, refUser, newUserCollection, pubg, refNewUser} = useContext(FireContext);
     const history = useHistory();
     const [gameName, setGameName] = useState("");
     const owner = currentUser ? currentUser.uid : null;
@@ -17,7 +17,7 @@ const Usersform = () => {
 
     const coinValidation = () => {
         let userCoin = +0;
-        let userId =null;
+        let userId = null;
         let gameId = +null;
         let gameCoin = +null;
         console.log('I dont know');
@@ -37,15 +37,14 @@ const Usersform = () => {
 
         // console.log(checkCoinDifference);
 
-        if(userCoin>=gameCoin && currentUser)
-        {
+        if (userCoin >= gameCoin && currentUser) {
             const checkCoinDifference = userCoin - gameCoin;
-            updateUserCoin(checkCoinDifference,userId);
+            updateUserCoin(checkCoinDifference, userId);
             AddUser(gameId);
         }
     }
 
-    const updateUserCoin=(UpdatedCoin,id)=>{
+    const updateUserCoin = (UpdatedCoin, id) => {
         const updateCoin = {coin: UpdatedCoin};
         refNewUser
             .doc(id)
@@ -54,7 +53,6 @@ const Usersform = () => {
                 console.log(err);
             });
     }
-
 
 
     function AddUser(gameId) {

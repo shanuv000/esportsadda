@@ -5,7 +5,7 @@ import Card from "../components/Cards/Card";
 import {makeStyles} from '@material-ui/core/styles';
 import {Alert} from '@material-ui/lab';
 import Snackbar from '@material-ui/core/Snackbar';
-
+import {Link} from 'react-router-dom';
 import moment from "moment";
 // import firebase from "../firebase";
 import {handleGameType} from './MatchLive';
@@ -80,7 +80,8 @@ const MatchUpcoming = () => {
             const handleButtonValidation = handleCardValidation(pubg.gameId);
             const print = pubg.match_condition === 1;
             count = print ? (count + 1) : count;
-            return print ? <Card
+            return print ?
+                <Card
                 key={pubg.id}
                 createdAt={moment(pubg.createdAt.toDate()).calendar()}
                 scheduledDate={moment(pubg.selectedDate).calendar()}
@@ -165,8 +166,8 @@ const MatchUpcoming = () => {
                 style={{minHeight: "745px"}}
             >
                 <div className="row ">
+                    {}
                     {cards}
-
                     <Snackbar open={open} autoHideDuration={20000} onClose={handleClose}>
                         <Alert onClose={handleClose} severity="success">
                             <h5>Login! before Proceeding!!</h5>
