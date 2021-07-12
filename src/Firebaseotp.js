@@ -1,9 +1,12 @@
-import React, {useEffect} from "react";
+import React, {useContext, useEffect} from "react";
 import firebase from "./firebase";
 import * as firebaseui from "firebaseui";
 import "firebaseui/dist/firebaseui.css";
+import {FireContext} from "./components/Firecontext";
 
 const FirebaseOtp = () => {
+    const {newUser} = useContext(FireContext);
+    // firebase.auth().settings.appVerificationDisabled = true
     //   const [phone, setPhone] = useState([]);
     const getUrl = true;
     const urlSwitch = getUrl
@@ -16,6 +19,7 @@ const FirebaseOtp = () => {
             {
                 provider: firebase.auth.PhoneAuthProvider.PROVIDER_ID,
                 recaptchaParameters: {
+
                     // type: "image",
                     size: "invisible",
                     // badge: "bottomleft",
@@ -41,7 +45,8 @@ const FirebaseOtp = () => {
         ui.start("#firebaseui-auth-container", uiConfig);
         return () => {
             ui.delete();
-            window.location = 'http://localhost:3000/';
+            window.location = 'https://www.gurucool.tech';
+
         };
     }, []);
 

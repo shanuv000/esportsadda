@@ -10,8 +10,8 @@ const Profile = () => {
     let coin = '';
     let referral = '';
     let currentId = null;
-    let referralValidation=0;
-const history = useHistory();
+    let referralValidation = 0;
+    const history = useHistory();
     const {newUserCollection, currentUser, logout} = useContext(FireContext);
     const currentUserid = currentUser ? currentUser.uid : null;
 
@@ -20,7 +20,7 @@ const history = useHistory();
             coin = coins.coin
             referral = coins.referral
             currentId = coins.id;
-            referralValidation=coins.referralValidation;
+            referralValidation = coins.referralValidation;
         });
 
     const logouting = () => {
@@ -34,7 +34,8 @@ const history = useHistory();
         </div>
         <div className="container">
             <div className="row">
-                <div className="col-sm-6"><Referral coin={coin} referral ={referral} currentId={currentId} referralValidation={referralValidation}/></div>
+                <div className="col-sm-6"><Referral coin={coin} referral={referral} currentId={currentId}
+                                                    referralValidation={referralValidation}/></div>
                 <div className="col-sm-6">
                     <WalletCard coin={coin}/>
                 </div>
