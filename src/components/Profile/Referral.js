@@ -2,7 +2,7 @@ import {useContext, useState} from "react";
 import {FireContext} from "../Firecontext";
 
 const Referral = (props) => {
-    const {newUserCollection, refNewUser} = useContext(FireContext);
+    const {newUserCollection, refNewUser,currentUser} = useContext(FireContext);
     const [checkReferralInput, setCheckReferralInput] = useState('');
     const currentId = props.currentId;
     const currentIdCoin = props.coin;
@@ -50,9 +50,9 @@ const Referral = (props) => {
     }
     const x = referralValidation === 0 ?
         <input type="name" onChange={e => setCheckReferralInput(e.target.value)} className="form-control mt-2"
-               placeholder="Enter Friend's Referral Key"/>: null;
+               placeholder="Enter Friend's Referral Key" disabled={!currentUser}/>: null;
     const y = referralValidation === 0 ?
-        <button onClick={referralValidator} className={'btn btn-primary mt-3'}>Submit</button> : null;
+        <button onClick={referralValidator} disabled={!currentUser} className={'btn btn-primary mt-3'}>Submit</button> : null;
 
     return <>
         <h1>

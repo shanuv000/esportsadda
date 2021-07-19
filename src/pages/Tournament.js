@@ -3,18 +3,21 @@ import MatchUpcoming from "./MatchUpcoming";
 // import PubgTable from "../admin/PubgTable";
 // import UserTable from '../admin/userTable';
 import React from 'react';
-import PropTypes from 'prop-types';import Paper from '@material-ui/core/Paper';
+import PropTypes from 'prop-types';
+import Paper from '@material-ui/core/Paper';
 
-import { makeStyles } from '@material-ui/core/styles';
+import {makeStyles} from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 import MatchLive from '../pages/MatchLive';
+// import manStyle from './Tournament.css';
+import './Tournament.css';
 
 function TabPanel(props) {
-    const { children, value, index, ...other } = props;
+    const {children, value, index, ...other} = props;
 
     return (
         <div
@@ -25,7 +28,7 @@ function TabPanel(props) {
             {...other}
         >
             {value === index && (
-                <Box p={3}>
+                <Box p={0} mt={1}>
                     <Typography>{children}</Typography>
                 </Box>
             )}
@@ -62,6 +65,8 @@ const useStyles = makeStyles((theme) => ({
     root: {
         flexGrow: 1,
         backgroundColor: theme.palette.background.paper,
+        // backgroundColor: 'black',
+        // color:'red'
     },
 }));
 
@@ -76,28 +81,25 @@ export default function NavTabs() {
     return (
         <div className={classes.root}>
 
-                <Paper className={classes.root}>
-                    <Tabs
-                        value={value}
-                        onChange={handleChange}
-                        indicatorColor="primary"
-                        textColor="primary"
-                        centered
-                    >
-                        <Tab label="UPCOMING" />
-                        <Tab label="LIVE" />
-                        <Tab label="RESULTS" />
-                    </Tabs>
-                </Paper>
+            <Paper className={classes.root}>
+                <Tabs
+                    value={value}
+                    onChange={handleChange}
+                    indicatorColor="primary"
+                    textColor="primary"
+                    centered
+                >
+                    <Tab label="UPCOMING" />
+                    <Tab label="LIVE"/>
+                    <Tab label="RESULTS"/>
+                </Tabs>
+            </Paper>
             <TabPanel value={value} index={0}>
                 <MatchUpcoming/>
             </TabPanel>
             <TabPanel value={value} index={1}>
                 <MatchLive/>
             </TabPanel>
-            {/*<TabPanel value={value} index={2}>*/}
-            {/*    <UserTable/>*/}
-            {/*</TabPanel>*/}
         </div>
     );
 }

@@ -73,11 +73,8 @@ const Header = (props) => {
                             </Nav.Link>
 
 
-
-
-
-                            <Nav.Link as={NavLink}  to='/new' href='/new'>
-                                New User
+                            <Nav.Link as={NavLink}  to='/contact' href='/contact'>
+                                Contact Us
                             </Nav.Link>
                                     {currentUser?
                                         // <p className='nav-link text-light'>{currentUser.phoneNumber}</p>

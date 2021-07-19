@@ -1,18 +1,15 @@
 import React, {useContext} from "react";
-import { IconButton } from "@material-ui/core";
-// import { FireContext } from "./Firecontext";
 import Modal from '../Modal';
 import "./Card.css";
 import MonetizationOnRoundedIcon from '@material-ui/icons/MonetizationOnRounded';
 import {Link } from 'react-router-dom';
 const Card = (props) => {
-  // const { currentUser } = useContext(FireContext);
 
   return (
     <>
 
       <div className="col-sm-12  mt-3 d-flex justify-content-center ">
-        <div class="card sm-12 border border-success" style={{ width: "30rem" }} >
+        <div className="card sm-12 border border-success" style={{ width: "30rem" }} >
           <Link to={`/cards/${props.gameId}`}>
             <img className="img-fluid" src={props.images} alt="Card  cap" />
           </Link>

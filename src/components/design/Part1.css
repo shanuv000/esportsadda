@@ -1,27 +1,28 @@
 .back__img {
-  color: white;
-  background-image: url("../../assets/cover1.svg");
-  display: block;
-   /*margin: 0 auto; */
-  /* Image is centered vertically and horizontally at all times */
-  background-position: center center;
+    color: white;
+    background-image: url("../../assets/cover1.svg");
+    display: block;
+    /*margin: 0 auto; */
+    /* Image is centered vertically and horizontally at all times */
+    background-position: center center;
 
-  background-repeat: no-repeat;
+    background-repeat: no-repeat;
 
-  background-color: #464646;
-  /*background-attachment: fixed;*/
-  /* SHORTHAND CSS NOTATION
-   * background: url(background-photo.jpg) center center cover no-repeat fixed;
-   */
+    background-color: #464646;
+    /*background-attachment: fixed;*/
+    /* SHORTHAND CSS NOTATION
+     * background: url(background-photo.jpg) center center cover no-repeat fixed;
+     */
 
-  min-height: 800px;
-  width: auto;
-  height: auto;
-   object-fit: cover;
-  box-shadow: 0px -45px 37px -11px rgba(238,23,23,0.94) inset;
-  -webkit-box-shadow: 0px -45px 37px -11px rgba(238,23,23,0.94) inset;
-  -moz-box-shadow: 0px -45px 37px -11px rgba(238,23,23,0.94) inset;
+    min-height: 800px;
+    width: auto;
+    height: auto;
+    object-fit: cover;
+    box-shadow: 0px -45px 37px -11px rgba(238, 23, 23, 0.94) inset;
+    -webkit-box-shadow: 0px -45px 37px -11px rgba(238, 23, 23, 0.94) inset;
+    -moz-box-shadow: 0px -45px 37px -11px rgba(238, 23, 23, 0.94) inset;
 }
+
 /*.img__logo{*/
 /*  object-fit: contain;*/
 /*}*/
@@ -29,56 +30,70 @@
   margin-top: 50px;
 } */
 
-.btn1,.btn2 {
-  padding: 12px;
-  transform: translate(0%, 150%);
+.btn1, .btn2 {
+    padding: 12px;
+    transform: translate(0%, 150%);
 
 }
-.back__part1__title{opacity:0.8;width:100%}
+
+.back__part1__title {
+    opacity: 0.8;
+    width: 100%
+}
+
 .text__color > p,
 h1 {
-  padding: 5px;
+    padding: 5px;
 }
-h1{font-family: 'Viaoda Libre', cursive;}
-p{font-family: 'Roboto Mono', monospace;}
+
+h1 {
+    font-family: 'Viaoda Libre', cursive;
+}
+
+p {
+    font-family: 'Roboto Mono', monospace;
+}
+
 .handle__margin {
-  transform: translate(0%, 5%);
+    transform: translate(0%, 5%);
 }
 
 .under__cover {
-  background: #c31432; /* fallback for old browsers */
-  background: -webkit-linear-gradient(
-    to right,
-    #240b36,
-    #c31432
-  ); /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(
-    to right,
-    #240b36,
-    #c31432
-  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-  height: 20px;
-  width: 100%;
+    background: #c31432; /* fallback for old browsers */
+    background: -webkit-linear-gradient(
+            to right,
+            #240b36,
+            #c31432
+    ); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(
+            to right,
+            #240b36,
+            #c31432
+    ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    height: 20px;
+    width: 100%;
 }
 
 @media only screen and (max-width: 767px) {
-  .back__img {
-    /* The file size of this background image is 93% smaller
-     * to improve page load speed on mobile internet connections */
-    text-align: center;
-    min-height: 900px;
+    .back__img {
+        /* The file size of this background image is 93% smaller
+         * to improve page load speed on mobile internet connections */
+        text-align: center;
+        min-height: 900px;
 
-    /* background-image: url(https://images.unsplash.com/photo-1619089654126-4f6d1df6fb69?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1526&q=80); */
-  }
-  .btn_Handle {
-    margin-top: 20px;
-  }
-  .handle__margin {
-    transform: translate(0, 0);
-  }
+        /* background-image: url(https://images.unsplash.com/photo-1619089654126-4f6d1df6fb69?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1526&q=80); */
+    }
 
-  .btn1,.btn2 {
-    transform: translate(0%, 0%);
+    .btn_Handle {
+        margin-top: 20px;
+    }
 
-  }
+    .handle__margin {
+        transform: translate(0, 0);
+    }
+
+    .btn1, .btn2 {
+        transform: translate(0%, 0%);
+
+    }
 }
