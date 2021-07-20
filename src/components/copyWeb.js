@@ -15,18 +15,17 @@ const CopyWeb = () => {
     }
 
     return <>
-        <div className="container">
-            <div className="row">
-                <div className="col-sm-6"><input type="text" className={'form-control border border-rounded'}
+
+            <div className="row ">
+                <div className="col-lg-4"><input type="text" className={'form-control border border-rounded'}
                                                  value={'https://www.gurucool.tech/'} disabled={true}/></div>
-                <div className="col-sm-3">
+                <div className="col-lg-6">
                     <button className={'btn '} onClick={copy}>
                         {!copied ? <h3><i className="far fa-copy"/></h3> : <h3><i className="fas fa-copy"/></h3>}
                     </button>
                 </div>
             </div>
             {/*<button onClick={copy}>{!copied ? "Copy link" : "Copied!"}</button>*/}
-        </div>
     </>
 }
 export default CopyWeb;
