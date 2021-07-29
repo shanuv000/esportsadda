@@ -38,7 +38,7 @@ export default function TransitionsModal(props) {
     return (
         <div>
             <button type="button" className={` ${props.styling}`} onClick={handleOpen}>
-                {props.name}
+                <i className="fas fa-mobile text-info"/>  {props.name}
             </button>
             <Modal
                 aria-labelledby="transition-modal-title"

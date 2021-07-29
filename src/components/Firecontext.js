@@ -3,6 +3,7 @@ import firebase from "../firebase";
 import {v4 as uuidv4} from "uuid";
 import {useHistory} from "react-router-dom";
 import {sendMessageToUser} from './SendPassword';
+import referralCodeGenerator from "referral-code-generator";
 
 export const FireContext = createContext();
 export const FireProvider = ({children}) => {
@@ -17,15 +18,21 @@ export const FireProvider = ({children}) => {
 // const [gameUserandPass,setGameUserandPass]=useState([{}]);
     const gameUserandPass = sendMessageToUser(currentUser, pubg, user);
     const history = useHistory();
-    const [newUserIdCollection, setnewUserIdCollection] = useState([]);
     const [newUserCollection, setNewUserCollection] = useState([]);
-    const [Loading,setLoading] =useState(true);
+    const [Loading, setLoading] = useState(true);
+    ///////
+    const [coin, setCoin] = useState(100);
+    const [referral, setReferral] = useState(referralCodeGenerator.alphaNumeric('uppercase', 3, 1));
+    const [referralValidation, setReferralValidation] = useState(0);
+    ///////////
     const authorize = () => {
         // let items = [];
         firebase.auth().onAuthStateChanged((user) => {
             setCurrentUser(user);
             if (user) {
                 setNewUser(user.metadata.creationTime === user.metadata.lastSignInTime);
+                const checkCreation = user.metadata.creationTime === user.metadata.lastSignInTime;
+
             }
         });
     };
@@ -55,14 +62,11 @@ export const FireProvider = ({children}) => {
 
     function getNewUserValidation() {
         refNewUser.onSnapshot((querySnapshot) => {
-            const items = [];
             const items2 = [];
             querySnapshot.forEach((doc) => {
                 items2.push(doc.data());
-                items.push(doc.data().ownerId);
             });
             setNewUserCollection(items2);
-            setnewUserIdCollection(items);
         });
     }
 
@@ -83,12 +87,12 @@ export const FireProvider = ({children}) => {
         getUser();
         authorize();
         getNewUserValidation();
-setLoading(false);
 
-    }, []);
+        setLoading(false);
+    }, [currentUser]);
 
-    if(Loading){
-        return <h1>Shanu is Great</h1>;
+    if (Loading) {
+        return <h1>Shanu </h1>;
     }
     return (
         <FireContext.Provider
@@ -104,7 +108,6 @@ setLoading(false);
                 newUser,
                 gameUserandPass,
                 refNewUser,
-                newUserIdCollection,
                 newUserCollection
 
             }}

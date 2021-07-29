@@ -4,27 +4,54 @@ import referralCodeGenerator from 'referral-code-generator';
 // import {sendMessageToUser} from '../components/SendPassword';
 import {v4 as uuidv4} from "uuid";
 
+// export const validator = (currentUser, newUser, newUserCollection, coin, referral, referralValidation, refNewUser) => {
+//     const owner = currentUser ? currentUser.phoneNumber : null;
+//     const ownerId = currentUser ? currentUser.uid : null;
+//
+//     console.log(newUserCollection);
+//     const l = newUserCollection.find(e => e.ownerId === ownerId);
+//     console.log(l);
+//     console.log(newUser);
+//
+//     if (!l && newUser && owner !== null) {
+//         const newUsers = {
+//             id: uuidv4(),
+//             owner,
+//             ownerId,
+//             createdAt: new Date(),
+//             coin: +coin,
+//             referral,
+//             referralValidation: +referralValidation
+//         }
+//         refNewUser
+//             .doc(newUsers.id)
+//             .set(newUsers)
+//             .catch((err) => {
+//                 console.log(err);
+//             })
+//     } else {
+//         return null;
+//     }
+// }
+
+
 const CreateNewProfile = () => {
-    const {currentUser, newUser, refNewUser, newUserIdCollection} = useContext(FireContext);
+    const {currentUser, newUser, refNewUser, newUserIdCollection, newUserCollection} = useContext(FireContext);
     const [coin, setCoin] = useState(100);
     const [referral, setReferral] = useState(referralCodeGenerator.alphaNumeric('uppercase', 3, 1));
-// const [validator,setValidator]=useState(false);
+    // const [validator, setValidator] = useState(false);
     const [referralValidation, setReferralValidation] = useState(0);
-//     let l = true;
+    let l = true;
 
-
-    const validator = () => {
-        // console.log('llll' + l);
+    const Validator = () => {
         const owner = currentUser ? currentUser.phoneNumber : null;
         const ownerId = currentUser ? currentUser.uid : null;
-        let l = true;
-        console.log(l);
-        l = !(newUserIdCollection.includes(ownerId));
+        console.log(newUserCollection);
+        const l = newUserCollection.find(e => e.ownerId === ownerId);
         console.log(l);
         console.log(newUser);
 
-        if (l && newUser && owner !== null) {
-
+        if (!l && newUser && owner !== null) {
             const newUsers = {
                 id: uuidv4(),
                 owner,
@@ -41,16 +68,16 @@ const CreateNewProfile = () => {
                     console.log(err);
                 })
         } else {
-            return console.log("Shanu nhi chala");
+            return null;
         }
     }
 
 
     useEffect(() => {
 
-        validator();
+        Validator();
 
-    }, [newUserIdCollection])
+    }, [currentUser])
 
 
     // AddnewUsers();
